@@ -1,0 +1,962 @@
+# Análisis Exhaustivo del Sistema de Avaluación Fiscal y Cálculo del Impuesto Territorial en Chile: Fórmulas, Algoritmos y Metodología del SII
+
+## Resumen Ejecutivo
+
+Este informe proporciona un análisis técnico-forense del sistema chileno
+de impuesto territorial, comúnmente conocido como \"contribuciones\". Se
+concluye que el sistema no opera bajo una \"fórmula\" única, sino que
+constituye una arquitectura algorítmica sofisticada, bifásica y
+paramétrica, administrada por el Servicio de Impuestos Internos (SII).
+
+El proceso se divide en dos fases principales:
+
+1.  **Fase 1 (Tasación):** Un motor de valoración paramétrico que
+    > calcula el *Avalúo Fiscal* de un bien raíz. Este motor está
+    > fundamentado en la Ley N° 17.235 y utiliza metodologías de
+    > valoración diferenciadas: para bienes no agrícolas, se basa en el
+    > costo de reposición (construcción) y el mercado comparativo
+    > (terreno), cuyas variables se definen en Resoluciones Exentas del
+    > SII.^1^ Para bienes agrícolas, se utiliza un modelo de capacidad
+    > de uso productivo.^3^
+
+2.  **Fase 2 (Cómputo):** Un algoritmo fiscal que toma el *Avalúo
+    > Fiscal* (el resultado de la Fase 1) como *input* y aplica una
+    > secuencia de operaciones: deducción de exenciones ^5^, aplicación
+    > de tasas progresivas por tramos ^6^ y la adición de sobretasas
+    > específicas (incluyendo fiscales y punitivas) ^7^, para determinar
+    > la *Contribución Neta* anual.
+
+Adicionalmente, este informe disecciona la dinámica de actualización
+dual del sistema. Esta dinámica asegura que la base imponible se
+mantenga al día mediante dos mecanismos: (a) el *Reavalúo* masivo
+cuatrienal, que redefine los valores base de mercado y costo para
+capturar la plusvalía real ^9^, y (b) el *Reajuste* semestral, un
+algoritmo automático de corrección monetaria basado en la variación del
+Índice de Precios al Consumidor (IPC) del semestre anterior.^7^
+
+Finalmente, se analizan en detalle las fórmulas exactas, las variables
+paramétricas y los regímenes de exención clave (como el Beneficio Adulto
+Mayor y el DFL-2) que actúan como modificadores algorítmicos, ajustando
+el resultado final para contribuyentes específicos.
+
+## I. Arquitectura Legal y Conceptual del Impuesto Territorial
+
+### Fundamentos de la Ley N° 17.235 (Ley sobre Impuesto Territorial)
+
+La totalidad del sistema de contribuciones en Chile se fundamenta en la
+Ley N° 17.235, sobre Impuesto Territorial.^4^ Este es el marco legal que
+define la existencia del impuesto y establece que la *tasación* (avalúo)
+de los bienes raíces, determinada por el SII, constituye la base
+imponible sobre la cual se aplica.^4^
+
+Un aspecto fundamental de esta ley es el Artículo 4° ^4^, el cual
+mandata explícitamente al Servicio de Impuestos Internos a impartir las
+instrucciones técnicas y administrativas para efectuar la tasación. Esto
+incluye la potestad de crear las \"tablas de clasificación\" de terrenos
+y construcciones.^2^ En la práctica, esto otorga al SII el poder
+administrativo para definir, actualizar y publicar los parámetros
+numéricos (valores unitarios, coeficientes, factores de depreciación)
+que alimentan las fórmulas de tasación. Por lo tanto, el \"algoritmo\"
+completo es una combinación de la estructura legal (la Ley) y los
+parámetros técnicos (las Resoluciones Exentas del SII).
+
+### El Proceso Secuencial: Distinción entre Avalúo Fiscal y Contribución
+
+Es un error conceptual común confundir el \"avalúo fiscal\" con las
+\"contribuciones\". Este informe demuestra que se trata de dos procesos
+secuenciales y distintos.^9^
+
+1.  **Avalúo Fiscal (Tasación):** Es el proceso de *valoración* mediante
+    > el cual el SII asigna un valor monetario a una propiedad (terreno
+    > y construcciones). Este valor no es el impuesto en sí mismo.
+
+2.  **Contribución (Impuesto):** Es el proceso de *cálculo del impuesto*
+    > que se debe pagar.
+
+La causalidad es estricta: el \"Avalúo Fiscal\" es el *input* o la
+variable de entrada para el algoritmo de \"Contribuciones\". Cualquier
+modificación, error o reajuste en el avalúo (Fase 1) se propaga y afecta
+directamente el cálculo del impuesto (Fase 2). Por consiguiente, la
+metodología de tasación (Secciones II y III) es la parte más crítica y,
+a menudo, la más contenciosa del sistema, ya que define la base
+imponible.
+
+### Diferenciación de Series: Bienes Raíces Agrícolas vs. No Agrícolas
+
+El sistema de tasación del SII no es monolítico. La Ley N° 17.235 ^4^ y
+la metodología del SII ^2^ dividen operativamente todos los bienes
+raíces del país en dos \"series\", cada una con una lógica de tasación
+fundamentalmente diferente:
+
+-   **Serie 1 (Agrícola):** Para predios con destino agrícola o
+    > forestal. El \"motor\" de tasación valora la *capacidad de uso
+    > potencial* del suelo.^4^ La fórmula busca determinar el valor
+    > *productivo* del terreno, no su valor de mercado inmobiliario.^3^
+
+-   **Serie 2 (No Agrícola):** Para todos los demás destinos
+    > (habitacional, comercial, industrial, sitios eriazos). El
+    > \"motor\" de tasación valora la *ubicación* (terreno, mediante
+    > método comparativo de mercado) y el *costo de reposición*
+    > (construcción).^2^
+
+El parámetro administrativo clave que determina cuál \"motor\" de
+tasación se utiliza es el *destino* del bien raíz, el cual es asignado
+por el SII.
+
+## II. Fase 1: La Fórmula de Tasación de Bienes Raíces No Agrícolas
+
+### La Ecuación Fundamental
+
+Para la vasta mayoría de las propiedades urbanas (Serie No Agrícola), el
+avalúo fiscal total es el resultado de una adición de sus componentes
+principales.^16^
+
+La fórmula base es:
+
+\$\$Avalúo \\ Fiscal \\ Total = Avalúo \\ de \\ Terreno + Avalúo \\ de
+\\ Construcciones\$\$
+
+Para propiedades sujetas al régimen de copropiedad inmobiliaria (como
+departamentos), se añade un tercer componente para valorar los espacios
+comunes:
+
+\$\$Avalúo \\ Fiscal \\ Total = Avalúo \\ de \\ Terreno + Avalúo \\ de
+\\ Construcciones + Avalúo \\ de \\ Prorrateo \\ del \\ Bien \\
+Común\$\$
+
+^18^
+
+El cálculo de cada uno de estos componentes obedece a su propia
+metodología algorítmica.
+
+### Metodología de Cálculo del Avalúo de Terreno (Componente 1)
+
+El SII no tasa cada terreno individualmente según sus méritos únicos. En
+su lugar, utiliza un **Método Comparativo de Mercado Parametrizado**.
+Este método consiste en definir \"Áreas Homogéneas\" (AH), que son zonas
+geográficas que comparten características similares de ubicación,
+desarrollo urbano, uso de suelo y equipamiento.^2^ A cada AH se le
+asigna un valor unitario base.
+
+La fórmula base de tasación de terreno es:
+
+\$\$AT = ST \\times VUTAH\$\$
+
+Donde:
+
+-   \$AT\$: Avalúo de Terreno.
+
+-   \$ST\$: Superficie de Terreno, medida en metros cuadrados
+    > (\$m\^2\$).^11^
+
+-   \$VUTAH\$: Valor Unitario de Terreno Área Homogénea. Es el valor en
+    > pesos por metro cuadrado (\$\\\$/m\^2\$) asignado a esa zona
+    > específica en los \"planos de precios\" publicados por el SII.^11^
+
+Sin embargo, esta fórmula base es modulada por un algoritmo de ajuste.
+La fórmula real que aplica el SII incorpora coeficientes de corrección:
+
+\$\$AT = ST \\times VUTAH \\times CT\$\$
+
+Donde \$CT\$ es el Coeficiente de Terreno. Este coeficiente es, a su
+vez, el resultado de otra fórmula 11:
+
+\$\$CT = (CS \\text{ o } CE) \\times CA\$\$
+
+-   \$CS\$: Coeficiente por Superficie (ajusta el valor si el terreno es
+    > mucho más grande o pequeño que el promedio de la zona).
+
+-   \$CE\$: Coeficiente Excepcional (un factor de corrección para
+    > situaciones atípicas).
+
+-   \$CA\$: Coeficiente por Altura de la Edificación (ajusta el valor
+    > del terreno según la densidad y altura del edificio construido
+    > sobre él).
+
+La inclusión de la variable \$CA\$ (Coeficiente por Altura) en la
+fórmula del *terreno* ^11^ demuestra una interdependencia avanzada en el
+modelo del SII. El sistema reconoce que el valor del suelo se realiza de
+manera diferente si soporta un edificio de dos pisos versus uno de
+treinta. El algoritmo de tasación de terreno no es, por tanto,
+completamente independiente de la construcción que alberga.
+
+### Metodología de Cálculo del Avalúo de Construcciones (Componente 2)
+
+Para las edificaciones, el SII emplea un **Método de Costo de
+Reposición**. El algoritmo calcula cuánto costaría reconstruir el
+edificio hoy, utilizando materiales y estándares similares, y luego le
+aplica un factor de depreciación por antigüedad.^2^
+
+La fórmula maestra para el avalúo de construcciones es 1:
+
+\$\$Avalúo \\ Construcción = VUC \\times SC \\times CE \\times DP
+\\times FC \\times CC\$\$
+
+Donde las variables clave son:
+
+-   \$VUC\$: Valor Unitario de la Construcción. Es el valor base en
+    > \$\\\$/m\^2\$ para construir.^1^
+
+-   \$SC\$: Superficie Construida, en metros cuadrados (\$m\^2\$).^1^
+
+-   \$CE\$: Condición Especial (ajuste por factores como construcción
+    > abierta, altillo, subterráneo, etc.).^1^
+
+-   \$DP\$: Depreciación (factor de ajuste por la edad de la
+    > edificación).^1^
+
+-   \$FC\$: Factor de Corrección.^1^
+
+-   \$CC\$: Coeficiente de Corrección.^1^
+
+El \"algoritmo\" real reside en la *clasificación* de la propiedad, que
+determina el valor de \$VUC\$. El \$VUC\$ no es un número fijo, sino el
+resultado de una consulta (un *lookup*) a las tablas paramétricas del
+SII.^2^
+
+Cada construcción es clasificada por el SII según dos ejes:
+
+1.  **Clase:** El tipo de estructura soportante predominante. Por
+    > ejemplo: A (Acero), B (Hormigón Armado), C (Albañilería de
+    > ladrillo), E (Madera).^21^
+
+2.  **Calidad:** Un número (generalmente de 1 a 5, donde 1 es superior)
+    > que refleja la calidad de las terminaciones (cielos, puertas,
+    > revestimientos, etc.).^21^
+
+La cadena de causalidad algorítmica es la siguiente:
+
+1.  Un tasador del SII (o la declaración del propietario) determina la
+    > clasificación (Ej: Clase \'C\', Calidad \'3\').
+
+2.  El algoritmo consulta la \"Tabla de Precios de Construcción\" ^17^
+    > para encontrar el \$VUC\$ correspondiente a una construcción
+    > \"C3\".
+
+3.  El algoritmo consulta la \"Tabla N° 9: Depreciación\" ^21^ para
+    > obtener el factor \$DP\$ basado en la antigüedad de la
+    > edificación.
+
+4.  Finalmente, multiplica todas las variables según la fórmula
+    > maestra.^1^
+
+Esto significa que el SII puede ejecutar un reavalúo de facto de todas
+las construcciones del país simplemente publicando una nueva Resolución
+Exenta que actualice los valores en estas tablas de clasificación.
+
+**Tabla 1: Fórmulas y Variables Clave del Avalúo No Agrícola (Fase 1)**
+
++-----------------------+-----------------------+-----------------------+
+| **Componente**        | **Fórmula Principal   | **Variables Clave y   |
+|                       | (Algoritmo)**         | Definición**          |
++=======================+=======================+=======================+
+| **Avalúo de Terreno** | \$AT = ST \\times     | **ST:** Superficie de |
+|                       | VUTAH \\times CT\$    | Terreno (\$m\^2\$).   |
+|                       |                       |                       |
+|                       |                       | **VUTAH:** Valor      |
+|                       |                       | Unitario de Terreno   |
+|                       |                       | (\$\\\$/m\^2\$) según |
+|                       |                       | planos de precios del |
+|                       |                       | Área Homogénea        |
+|                       |                       | (AH).^11^             |
+|                       |                       |                       |
+|                       |                       | **CT:** Coeficiente   |
+|                       |                       | de Terreno, que se    |
+|                       |                       | calcula como \$(CS    |
+|                       |                       | \\text{ o } CE)       |
+|                       |                       | \\times CA\$ (ajustes |
+|                       |                       | por superficie,       |
+|                       |                       | altura, etc.).^11^    |
++-----------------------+-----------------------+-----------------------+
+| **Avalúo de           | \$AC = VUC \\times SC | **VUC:** Valor        |
+| Construcción**        | \\times CE \\times DP | Unitario de           |
+|                       | \\times FC \\times    | Construcción          |
+|                       | CC\$                  | (\$\\\$/m\^2\$). Es   |
+|                       |                       | un valor *obtenido*   |
+|                       |                       | de tablas según Clase |
+|                       |                       | (estructura) y        |
+|                       |                       | Calidad               |
+|                       |                       | (terminaciones).^1^   |
+|                       |                       |                       |
+|                       |                       | **SC:** Superficie    |
+|                       |                       | Construida            |
+|                       |                       | (\$m\^2\$).^18^       |
+|                       |                       |                       |
+|                       |                       | **CE:** Coeficiente   |
+|                       |                       | de Condición Especial |
+|                       |                       | (altillos,            |
+|                       |                       | subterráneos).^1^     |
+|                       |                       |                       |
+|                       |                       | **DP:** Factor de     |
+|                       |                       | Depreciación (basado  |
+|                       |                       | en la antigüedad,     |
+|                       |                       | según Tabla N°        |
+|                       |                       | 9).^21^               |
+|                       |                       |                       |
+|                       |                       | **FC/CC:** Factores   |
+|                       |                       | de Corrección.^1^     |
++-----------------------+-----------------------+-----------------------+
+
+## III. Fase 1 (Alternativa): La Fórmula de Tasación de Bienes Raíces Agrícolas
+
+### Lógica Diferenciada
+
+Como se estableció, para los bienes raíces de la Serie 1 (Agrícola), el
+SII utiliza un \"motor\" de tasación completamente diferente. La lógica
+no se basa en el costo de reposición o el valor de mercado de la
+ubicación, sino en la **capacidad productiva potencial del suelo**.^2^
+
+La fórmula general es la misma en estructura 3:
+
+\$\$ATPA = ATS + ATCA\$\$
+
+Donde:
+
+-   \$ATPA\$: Avalúo Total Predio Agrícola.
+
+-   \$ATS\$: Avalúo Total del Suelo.
+
+-   \$ATCA\$: Avalúo Total de las Construcciones.
+
+### Desglose del Avalúo Total del Suelo (ATS)
+
+La fórmula para el suelo agrícola modela la rentabilidad potencial 3:
+
+\$\$ATS = \\left( \\sum (VBS \\times HAS) \\right) \\times \\left( 1 -
+\\frac{RCD}{100} \\right)\$\$
+
+Donde:
+
+-   \$VBS\$ (Valor Base del Suelo): Es el valor unitario en pesos por
+    > hectárea (\$\\\$/ha\$) definido por el SII. Este valor depende de
+    > la *clasificación* del suelo (p.ej., Tipo I Riego, Tipo III
+    > Secano, etc.) y de la *comuna* de ubicación.^3^
+
+-   \$HAS\$ (Hectáreas de Suelo): La cantidad de hectáreas (\$ha\$) de
+    > esa clase de suelo.^3^ El símbolo \$\\sum\$ (sumatoria) indica que
+    > el cálculo \$VBS \\times HAS\$ se realiza para cada tipo de suelo
+    > presente en el predio, y luego se suman los resultados.
+
+-   \$RCD\$ (Factor de Rebaja por Camino -- Distancia): Es un
+    > *porcentaje de rebaja* que ajusta el valor total del suelo.^3^
+    > Este factor modela la *fricción económica* (costos de transporte)
+    > basándose en la distancia del predio a los centros de
+    > abastecimiento y la calidad de las vías de comunicación.^4^ Un
+    > predio fértil pero muy lejano y con mal camino tendrá un \$RCD\$
+    > alto (mayor rebaja), disminuyendo su avalúo.
+
+### Desglose del Avalúo Total de Construcciones (ATCA)
+
+La fórmula para las construcciones en predios agrícolas es similar a la
+no agrícola, pero con variables adaptadas 3:
+
+\$\$ATCA = \\sum (VBC \\times CM \\times GC \\times DP \\times CE)\$\$
+
+Donde:
+
+-   \$VBC\$: Valor Base de Construcción (\$\\\$/m\^2\$) según clase y
+    > calidad.^3^
+
+-   \$CM\$: Cantidad de Metros cuadrados (\$m\^2\$) construidos.^3^
+
+-   \$GC\$: Grupo Comunal. Un coeficiente de ajuste basado en la comuna,
+    > que refleja los costos de construcción locales.^3^
+
+-   \$DP\$: Depreciación (ajuste por edad).^3^
+
+-   \$CE\$: Condición Especial de Edificación (p.ej., mansarda,
+    > subterráneo).^3^
+
+### Ajuste Específico: Beneficio Casa Patronal
+
+El algoritmo de tasación agrícola contiene una exención *interna*, que
+se aplica *antes* de finalizar la Fase 1. Del avalúo total de las casas
+patronales (calculado con la fórmula ATCA), se descuenta un monto fijo
+por ley, conocido como \"Beneficio Casa Patronal\". Al primer semestre
+de 2024, este beneficio ascendía a \$12,464,545.^3^
+
+**Tabla 2: Fórmulas y Variables Clave del Avalúo Agrícola (Fase 1)**
+
++-----------------------+-----------------------+-----------------------+
+| **Componente**        | **Fórmula Principal   | **Variables Clave y   |
+|                       | (Algoritmo)**         | Definición**          |
++=======================+=======================+=======================+
+| **Avalúo del Suelo    | \$ATS = \\left( \\sum | **VBS:** Valor Base   |
+| (ATS)**               | (VBS \\times HAS)     | del Suelo             |
+|                       | \\right) \\times      | (\$\\\$/ha\$) según   |
+|                       | \\left( 1 -           | *clase de suelo* y    |
+|                       | \\frac{RCD}{100}      | *comuna*.^3^          |
+|                       | \\right)\$            |                       |
+|                       |                       | **HAS:** Hectáreas de |
+|                       |                       | cada clase de         |
+|                       |                       | suelo.^3^             |
+|                       |                       |                       |
+|                       |                       | **RCD:** Factor de    |
+|                       |                       | Rebaja por Camino y   |
+|                       |                       | Distancia (%).^3^     |
++-----------------------+-----------------------+-----------------------+
+| **Avalúo de           | \$ATCA = \\sum (VBC   | **VBC:** Valor Base   |
+| Construcciones        | \\times CM \\times GC | de Construcción       |
+| (ATCA)**              | \\times DP \\times    | (\$\\\$/m\^2\$).^3^   |
+|                       | CE)\$                 |                       |
+|                       |                       | **CM:** Cantidad de   |
+|                       |                       | Metros (\$m\^2\$).^3^ |
+|                       |                       |                       |
+|                       |                       | **GC:** Coeficiente   |
+|                       |                       | de Grupo Comunal      |
+|                       |                       | (costo local).^3^     |
+|                       |                       |                       |
+|                       |                       | **DP:** Factor de     |
+|                       |                       | Depreciación (por     |
+|                       |                       | edad).^3^             |
+|                       |                       |                       |
+|                       |                       | **CE:** Coeficiente   |
+|                       |                       | de Condición          |
+|                       |                       | Especial.^3^          |
++-----------------------+-----------------------+-----------------------+
+
+## IV. Fase 2: El Algoritmo de Cálculo de las Contribuciones
+
+Una vez que la Fase 1 determina el \$Avalúo \\ Fiscal \\ Total\$ (sea
+por el método Agrícola o No Agrícola), ese número se convierte en el
+*input* para la Fase 2: el cómputo del impuesto.
+
+### Paso 1: Determinación del Avalúo Afecto
+
+El primer paso del algoritmo fiscal es determinar la base imponible
+real, o \"Avalúo Afecto\".^7^ No se grava el avalúo total, sino solo la
+porción que excede un monto exento definido por ley.
+
+Fórmula:
+
+\$\$Avalúo \\ Afecto = Avalúo \\ Total - Monto \\ Exento\$\$
+
+El \$Monto \\ Exento\$ es la variable clave que determina si una
+propiedad paga o no contribuciones:
+
+-   **Para Bienes Raíces Habitacionales:** Existe una exención general
+    > de carácter habitacional. Esta exención se reajusta
+    > semestralmente. A modo de referencia, al 1 de enero de 2025, esta
+    > exención era de **\$58,040,782**.^6^ Cualquier propiedad
+    > habitacional con un \$Avalúo \\ Total\$ inferior a este monto
+    > tiene un \$Avalúo \\ Afecto\$ de \$0\$ y, por lo tanto, no paga
+    > contribuciones.^5^
+
+-   **Para Bienes Raíces Agrícolas:** También gozan de una exención. Al
+    > 1 de enero de 2025, esta exención era de **\$47,192,449**.^6^
+
+-   **Para Otros Destinos (Comercio, Industria, Bodega):** Generalmente,
+    > no tienen exención (\$Monto \\ Exento = 0\$). Por lo tanto, para
+    > estos bienes, \$Avalúo \\ Afecto = Avalúo \\ Total\$.^8^
+
+### Paso 2: Cálculo de la Contribución Neta (Impuesto Progresivo)
+
+El algoritmo aplica una tasa impositiva al \$Avalúo \\ Afecto\$
+resultante del Paso 1.
+
+-   **Para Bienes Raíces No Agrícolas (Destino Habitacional):** El
+    > sistema es *progresivo*, similar al impuesto a la renta.^7^ El
+    > algoritmo aplica una lógica condicional (IF-THEN-ELSE) basada en
+    > el \$MONTO \\ CAMBIO \\ DE \\ TASA \\ BIENES \\ RAÍCES \\
+    > HABITACIONALES\$.
+
+    -   Al 1 de enero de 2025, el \$Monto \\ de \\ Cambio \\ de \\
+        > Tasa\$ era **\$207,288,476**.^6^
+
+    -   **Tasa 1 (0.893%):** Se aplica al tramo del \$Avalúo \\ Afecto\$
+        > que es menor o igual a \$207,288,476\$.^6^
+
+    -   **Tasa 2 (1.042%):** Se aplica *solo a la parte* del \$Avalúo \\
+        > Afecto\$ que *excede* los \$207,288,476\$.^6^
+
+> **Ejemplo Algorítmico (para una propiedad con \$Avalúo \\ Afecto\$ de
+> \$300,000,000\$):**
+
+1.  \$Impuesto \\ Tramo \\ 1 = 207,288,476 \\times 0.893\\%\$
+
+2.  \$Impuesto \\ Tramo \\ 2 = (300,000,000 - 207,288,476) \\times
+    > 1.042\\%\$
+
+3.  \$Contribución \\ Neta \\ Anual = Impuesto \\ Tramo \\ 1 + Impuesto
+    > \\ Tramo \\ 2\$
+
+-   **Para Bienes Raíces No Agrícolas (Otros Destinos):** El sistema es
+    > de tasa fija (proporcional). Por ejemplo, durante la vigencia del
+    > reavalúo 2018, la tasa era de 1.088%.^8^ Estas tasas se actualizan
+    > por Resoluciones del SII.
+
+### Paso 3: El Cálculo de Sobretasas (Adiciones al Impuesto)
+
+El algoritmo fiscal añade *capas* de impuestos adicionales sobre la
+\$Contribución \\ Neta\$.
+
+-   **Adición 1: Sobretasa de Beneficio Fiscal (0.025%):**
+
+    -   Se trata de una sobretasa general. Para propiedades no
+        > habitacionales, se aplica sobre el *avalúo afecto total*.^8^
+
+    -   Para las propiedades habitacionales, esta sobretasa se aplica
+        > *solo sobre el tramo afecto a la Tasa 2* (es decir, sobre el
+        > tramo \"de lujo\" que excede el Monto de Cambio de Tasa).^8^
+
+    -   Esto significa que la tasa *efectiva* para el tramo más alto de
+        > propiedades habitacionales es \$1.042\\% + 0.025\\% =
+        > 1.067\\%\$.
+
+-   **Adición 2: Sobretasa Sancionatoria (100%):**
+
+    -   Esta sobretasa se aplica a \"sitios no edificados, propiedades
+        > abandonadas o pozos lastreros\" ubicados en áreas urbanas.^4^
+
+    -   El algoritmo es simple: \$Sobretasa = Contribución \\ Neta
+        > \\times 100\\%\$. En efecto, *duplica* el impuesto.
+
+    -   Este no es un algoritmo de recaudación, sino un algoritmo
+        > *punitivo*. Su objetivo es crear un costo financiero tan alto
+        > que la tenencia de tierra eriaza o abandonada en zonas urbanas
+        > sea económicamente inviable, forzando así su desarrollo o
+        > venta.^16^
+
+### Paso 4: Determinación del Impuesto Anual y Pago
+
+La fórmula final del impuesto a pagar es:
+
+\$\$Impuesto \\ Anual = Contribución \\ Neta + Sobretasa \\ 0.025\\% +
+Sobretasa \\ 100\\% \\ (si \\ aplica)\$\$
+
+Este monto anual se divide en cuatro cuotas ^9^, con vencimiento en
+abril, junio, septiembre y noviembre.^28^
+
+Es importante notar que el cobro por *aseo municipal* (recolección de
+basura) a menudo se incluye en el mismo boletín de pago ^16^, pero *no
+es parte* del Impuesto Territorial. Es un cobro municipal distinto, y
+exenciones como el Beneficio Adulto Mayor no aplican a esta cuota de
+aseo.^29^
+
+**Tabla 3: Algoritmo de Cálculo Progresivo (Contribución Habitacional
+2025)**
+
+  -----------------------------------------------------------------------
+  **Paso**                **Operación             **Descripción (Valores
+                          Algorítmica**           al 01/01/2025)**
+  ----------------------- ----------------------- -----------------------
+  **1**                   \$Input\$               \$Avalúo \\ Total \\
+                                                  (de \\ Fase \\ 1)\$
+
+  **2**                   \$Monto \\ Exento\$     \$58,040,782\$ ^6^
+
+  **3**                   \$Avalúo \\ Afecto\$    \$MAX(0, \\text{Paso
+                                                  1} - \\text{Paso 2})\$
+
+  **4**                   \$Monto \\ Cambio \\    \$207,288,476\$ ^6^
+                          Tasa\$                  
+
+  **5**                   \$Cálculo \\ Tramo \\   \$MIN(\\text{Paso 3},
+                          1\$                     \\text{Paso 4}) \\times
+                                                  0.893\\%\$ (Tasa 1) ^6^
+
+  **6**                   \$Cálculo \\ Tramo \\   \$MAX(0, \\text{Paso
+                          2\$                     3} - \\text{Paso 4})
+                                                  \\times 1.042\\%\$
+                                                  (Tasa 2) ^6^
+
+  **7**                   \$Contribución \\       \$Paso \\ 5 + Paso \\
+                          Neta\$                  6\$
+
+  **8**                   \$Sobretasa \\ Fiscal\$ \$MAX(0, \\text{Paso
+                                                  3} - \\text{Paso 4})
+                                                  \\times 0.025\\%\$ ^8^
+
+  **9**                   **Impuesto Anual        \$Paso \\ 7 + Paso \\
+                          Total**                 8\$ (Excluye Sobretasa
+                                                  100% por simplicidad)
+  -----------------------------------------------------------------------
+
+## V. La Dinámica del Sistema: Reavalúo y Reajustabilidad
+
+El sistema de tasación no es estático; los valores calculados en la Fase
+1 son actualizados permanentemente. El SII implementa un sistema híbrido
+con dos \"algoritmos\" de actualización que operan en paralelo y tienen
+propósitos distintos: uno captura el valor de *mercado* y el otro
+captura la *inflación*.
+
+### El Proceso de Reavalúo Masivo (Actualización Estructural)
+
+Este es el proceso mediante el cual el SII actualiza los *valores base*
+del sistema de tasación para reflejar los cambios en el valor de
+mercado.
+
+-   **Periodicidad:** La Ley N° 17.235 ^4^ mandata un reavalúo en
+    > períodos no superiores a 5 años ni inferiores a 3.^30^ En la
+    > práctica moderna, el SII ejecuta reavalúos masivos cada **4
+    > años**.^9^ (Ej. Reavalúo Agrícola 2024 ^24^, Reavalúo No Agrícola
+    > 2025 ^31^).
+
+-   **Qué se actualiza:** Durante un Reavalúo, el SII realiza un estudio
+    > de mercado ^2^ y redefine los parámetros de la Fase 1.
+    > Específicamente, actualiza los \$VUTAH\$ (los valores
+    > \$\\\$/m\^2\$ en los \"Planos de Precios\" ^20^) y los \$VUC\$
+    > (los \$\\\$/m\^2\$ en las \"Tablas de Construcción\").
+
+-   **Efecto:** Este proceso captura la *plusvalía* (o minusvalía) real
+    > generada por cambios en el entorno, como nuevas líneas de metro
+    > ^9^, desarrollos inmobiliarios o deterioro urbano.
+
+-   **Alza Gradual:** Para mitigar el \"shock\" tributario que puede
+    > causar un reavalúo (aumentos del 10-15% o más ^9^), la ley
+    > contempla un mecanismo de \"alza gradual\". Este algoritmo
+    > fracciona el aumento de la contribución, incorporándolo
+    > semestralmente en porcentajes definidos (p.ej., un alza inicial
+    > del 25%, seguida de alzas del 10% en semestres posteriores).^25^
+
+### El Algoritmo de Actualización Semestral (Corrección Monetaria)
+
+Independientemente del Reavalúo cuatrienal, la ley mandata un *reajuste
+semestral* de todos los avalúos fiscales.^5^
+
+-   **El Algoritmo:** El 1 de enero y el 1 de julio de cada año, todos
+    > los \$Avalúos \\ Fiscales\$ y, crucialmente, todos los \$Montos \\
+    > Exentos\$ ^7^ se reajustan automáticamente.
+
+-   **El Factor:** El factor de reajuste es el porcentaje de variación
+    > del **Índice de Precios al Consumidor (IPC) del semestre
+    > calendario inmediatamente anterior**.^5^
+
+-   Fórmula del Algoritmo:\
+    > \$Avalúo\_{Semestre \\ T} = Avalúo\_{Semestre \\ T-1} \\times (1 +
+    > IPC\_{Semestre \\ T-1})\$
+
+-   **Evidencia del Algoritmo:** Este cálculo es explícito en la
+    > documentación del SII. Por ejemplo, se detalla cómo un \$VUTAH\$
+    > (valor base del Reavalúo) de \$108,282\$ al segundo semestre de
+    > 2023 se actualiza al primer semestre de 2024: se le aplica un
+    > factor de \$1.018\$ (la variación de IPC de los 6 meses
+    > anteriores), resultando en un nuevo valor de \$110,231\$.^11^
+
+Esto implica que, aunque el valor de *mercado* de una propiedad esté
+estancado o incluso baje, su *avalúo fiscal* (y por ende la base para
+calcular las contribuciones) subirá algorítmicamente cada 6 meses, en
+línea con la inflación general del país.^12^
+
+## VI. Regímenes Especiales y Modificadores del Algoritmo
+
+El resultado del algoritmo de la Fase 2 (Cálculo de Contribuciones)
+puede ser modificado por regímenes de exención específicos. Estos actúan
+como *descuentos* sobre el impuesto final a pagar.
+
+### Análisis del Beneficio de Adulto Mayor (BAM)
+
+Este es un beneficio ^34^ que aplica un descuento sobre la contribución
+final.^37^ La elegibilidad y el porcentaje de descuento dependen de un
+conjunto de reglas algorítmicas ^38^:
+
+1.  **Requisito de Edad:** 60+ años para mujeres, 65+ años para
+    > hombres.^38^
+
+2.  **Requisito de Propiedad:** Debe ser un inmueble no agrícola con
+    > destino habitacional.^38^
+
+3.  **Tope de Avalúo (Individual):** El avalúo fiscal de la propiedad
+    > que recibe el beneficio no debe exceder un límite. Al 1 de julio
+    > de 2025, este límite era de **\$224,577,396**.^38^
+
+4.  **Tope de Avalúo (Patrimonial Total):** La *suma* de los avalúos
+    > fiscales de *todos* los bienes raíces del contribuyente (sin
+    > importar su destino) no debe exceder un límite patrimonial. Al 1
+    > de julio de 2025, este límite era de **\$300,021,365**.^38^
+
+Si se cumplen estos requisitos, el algoritmo de descuento se activa
+basado en los *ingresos* del contribuyente, medidos en Unidad Tributaria
+Anual (UTA) ^38^:
+
+-   **Descuento del 100% (Exención Total):** Si los ingresos anuales son
+    > \$\\leq\$ 13.5 UTA.
+
+-   **Descuento del 50%:** Si los ingresos anuales son \$\> 13.5\$ UTA y
+    > \$\\leq\$ 30 UTA.
+
+### Beneficios de Viviendas DFL-2 (Decreto con Fuerza de Ley N°2, 1959)
+
+Este régimen aplica a viviendas \"económicas\" con una superficie
+construida que no exceda los 140 \$m\^2\$.^40^
+
+-   **Algoritmo del Beneficio:** Otorga un descuento del **50% del monto
+    > de las contribuciones**.^40^ Este beneficio está limitado a un
+    > máximo de dos viviendas por persona natural.
+
+-   **Beneficio Temporal:** La duración del descuento depende del tamaño
+    > de la vivienda ^40^:
+
+    -   **20 años:** Para viviendas de hasta 70 \$m\^2\$.
+
+    -   **15 años:** Para viviendas entre 70 y 100 \$m\^2\$.
+
+    -   **10 años:** Para viviendas entre 100 y 140 \$m\^2\$.
+
+Estas viviendas DFL-2 también están sujetas a la exención general
+habitacional.^40^ El SII aplica automáticamente el beneficio que sea más
+favorable para el contribuyente.^40^
+
+### Otras Exenciones Generales y Especiales
+
+La Ley N° 17.235 también exime totalmente (exención del 100%) del
+impuesto territorial a propiedades con destinos específicos considerados
+de bien público, tales como propiedades fiscales, bienes raíces
+municipales, propiedades destinadas al culto, establecimientos
+educacionales y recintos deportivos, entre otros.^5^
+
+**Tabla 4: Resumen de Regímenes Especiales Modificadores (BAM y DFL-2)**
+
++-----------------------+-----------------------+-----------------------+
+| **Beneficio**         | **Requisitos Clave de | **Resultado           |
+|                       | Elegibilidad**        | Algorítmico           |
+|                       |                       | (Descuento)**         |
++=======================+=======================+=======================+
+| **Beneficio Adulto    | **Edad:** 60+ (M) /   | **100% o 50% de       |
+| Mayor (BAM)**         | 65+ (H).              | descuento** sobre la  |
+|                       |                       | contribución neta. No |
+|                       | **Ingreso (UTA):**    | aplica a cuota de     |
+|                       | \$\\leq\$ 13.5 (para  | aseo.^29^             |
+|                       | 100%) o 13.5-30 (para |                       |
+|                       | 50%).^38^             |                       |
+|                       |                       |                       |
+|                       | **Avalúo (2025):**    |                       |
+|                       | Propiedad \$\\leq\$   |                       |
+|                       | \$224M, Totalidad de  |                       |
+|                       | Bienes \$\\leq\$      |                       |
+|                       | \$300M.^39^           |                       |
++-----------------------+-----------------------+-----------------------+
+| **Viviendas DFL-2**   | **Superficie:**       | **50% de descuento**  |
+|                       | \$\\leq\$ 140         | sobre la contribución |
+|                       | \$m\^2\$.^40^         | neta, por un período  |
+|                       |                       | temporal de 10, 15 o  |
+|                       | **Límite:** Máximo 2  | 20 años, dependiendo  |
+|                       | viviendas por RUT.    | de los \$m\^2\$.^40^  |
++-----------------------+-----------------------+-----------------------+
+
+## VII. Conclusiones y Observaciones Técnicas
+
+El análisis forense del sistema de impuesto territorial en Chile revela
+que no existe una \"fórmula\" única, sino un sofisticado modelo
+algorítmico, multicapa y dinámico.
+
+1.  **Síntesis del Algoritmo:** El sistema chileno es un modelo
+    > legalmente fundamentado en la Ley N° 17.235 ^4^ y
+    > administrativamente ejecutado por el SII. La \"inteligencia\" del
+    > sistema reside en las Resoluciones Exentas, que actualizan las
+    > tablas paramétricas (valores unitarios, coeficientes) que
+    > alimentan las fórmulas.^17^
+
+2.  **Fase 1 (Tasación):** Es un motor de valoración dual que aplica la
+    > lógica correcta al destino correcto: capacidad productiva para el
+    > agro ^3^ y una combinación de costo de reposición/valor de mercado
+    > para lo urbano.^1^ Esta fase es altamente paramétrica y depende de
+    > la correcta *clasificación* (Clase/Calidad) de la propiedad.^21^
+
+3.  **Fase 2 (Cómputo):** Es un algoritmo fiscal que transforma el
+    > avalúo (output de Fase 1) en impuesto. Utiliza un sistema de
+    > exenciones ^6^ y tasas progresivas ^8^ para asegurar la equidad
+    > vertical (quien tiene más, paga una tasa mayor), y utiliza
+    > sobretasas ^8^ como claros instrumentos de política pública para
+    > desincentivar la tenencia de sitios eriazos.
+
+4.  **Dinámica del Sistema:** El modelo es híbrido y se auto-corrige.
+    > Combina una actualización estructural de *valores* (Reavalúo
+    > cuatrienal) ^10^ para capturar la plusvalía de mercado, con una
+    > actualización algorítmica de *precios* (Reajuste IPC semestral)
+    > ^7^ para proteger la base imponible de la inflación.
+
+5.  **Observación Final:** La complejidad del sistema, con sus múltiples
+    > fórmulas, tablas paramétricas, exenciones interactuantes y
+    > algoritmos de actualización, si bien es técnicamente robusta,
+    > genera una opacidad inevitable para el contribuyente común. El
+    > acceso a la información y la consulta del avalúo están
+    > garantizados por el SII a través de sus plataformas en línea.^27^
+    > Sin embargo, la comprensión y eventual impugnación del *cálculo*
+    > ^44^ requiere un análisis forense detallado de la interacción
+    > entre las fórmulas matemáticas y las tablas de parámetros
+    > vigentes, tal como el que se ha detallado en este informe.
+
+#### Obras citadas
+
+1.  Guia Calculo Avaluo \| PDF \| Condominio \| Bienes raíces - Scribd,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://es.scribd.com/document/699812266/guia-calculo-avaluo]{.underline}](https://es.scribd.com/document/699812266/guia-calculo-avaluo)
+
+2.  Reavalúo - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/novedades/comision_hacienda_camara_diputados_070725.pdf]{.underline}](https://www.sii.cl/destacados/novedades/comision_hacienda_camara_diputados_070725.pdf)
+
+3.  FÓRMULAS PARA CALCULAR AVALÚOS PREDIOS AGRÍCOLA - SII, fecha de
+    > acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/pagina/br/calculo_avaluo_agricola.htm]{.underline}](https://www.sii.cl/pagina/br/calculo_avaluo_agricola.htm)
+
+4.  FIJA TEXTO REFUNDIDO, COORDINADO, SISTEMATIZADO Y \..., fecha de
+    > acceso: noviembre 7, 2025,
+    > [[https://www.tesoreria.cl/web/Contenido/Documentos/1956/Ley%2017325%20de%20Impuesto%20Territorial.pdf]{.underline}](https://www.tesoreria.cl/web/Contenido/Documentos/1956/Ley%2017325%20de%20Impuesto%20Territorial.pdf)
+
+5.  IMPUESTO TERRITORIAL - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/aprenda_sobre_impuestos/impuestos/otros_impuestos.htm]{.underline}](https://www.sii.cl/aprenda_sobre_impuestos/impuestos/otros_impuestos.htm)
+
+6.  Reajustes y exenciones de impuesto territorial - SII \| Servicio de
+    > \..., fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/ayudas/ayudas_por_servicios/2242-reajustes_exenciones-2468.html]{.underline}](https://www.sii.cl/ayudas/ayudas_por_servicios/2242-reajustes_exenciones-2468.html)
+
+7.  exención habitacional - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/bienes_raices/001_004_7156.htm]{.underline}](https://www.sii.cl/preguntas_frecuentes/bienes_raices/001_004_7156.htm)
+
+8.  Impuesto Territorial - BCN, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.bcn.cl/obtienearchivo?id=repositorio/10221/28178/2/Forma_de_calculo_del_Impuesto_Territorial.pdf]{.underline}](https://www.bcn.cl/obtienearchivo?id=repositorio/10221/28178/2/Forma_de_calculo_del_Impuesto_Territorial.pdf)
+
+9.  ¿Cómo se calcula el avalúo fiscal y las contribuciones? - Coldwell
+    > Banker Chile, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.coldwellbanker.cl/blog/blog-1/como-se-calcula-el-avaluo-fiscal-y-las-contribuciones-211]{.underline}](https://www.coldwellbanker.cl/blog/blog-1/como-se-calcula-el-avaluo-fiscal-y-las-contribuciones-211)
+
+10. ¿Qué es Reavalúo? - SII \| Servicio de Impuestos Internos, fecha de
+    > acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo_agricola/2024/proceso_rav_agri.html]{.underline}](https://www.sii.cl/destacados/reavaluo_agricola/2024/proceso_rav_agri.html)
+
+11. Guía para calcular el avalúo - SII \| Servicio de Impuestos
+    > Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2024/4449-4453.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2024/4449-4453.html)
+
+12. ¿Por qué, en las cartas de Reavalúo 2018, en algunos casos se
+    > detallan las contribuciones hasta el segundo semestre del 2021 y
+    > en otros no? - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_7160.htm]{.underline}](https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_7160.htm)
+
+13. Ley 17.235 - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/pagina/jurisprudencia/ley17235.htm]{.underline}](https://www.sii.cl/pagina/jurisprudencia/ley17235.htm)
+
+14. Ley 17235 FIJA EL TEXTO REFUNDIDO, SISTEMATIZADO Y COORDINADO DE LA
+    > LEY SOBRE IMPUESTO TERRITORIAL. - Ley Chile, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.leychile.cl/leychile/Navegar?idNorma=28849]{.underline}](https://www.leychile.cl/leychile/Navegar?idNorma=28849)
+
+15. Ley 17235 FIJA EL TEXTO REFUNDIDO, SISTEMATIZADO Y COORDINADO DE LA
+    > LEY SOBRE IMPUESTO TERRITORIAL. - BCN, fecha de acceso: noviembre
+    > 7, 2025,
+    > [[https://www.bcn.cl/leychile/Navegar?idNorma=28849&idVersion=1969-12-24]{.underline}](https://www.bcn.cl/leychile/Navegar?idNorma=28849&idVersion=1969-12-24)
+
+16. IMPUESTO TERRITORIAL - Revistas de Estudios Tributarios, fecha de
+    > acceso: noviembre 7, 2025,
+    > [[https://revistaestudiostributarios.uchile.cl/index.php/RET/article/download/40727/42287/141497]{.underline}](https://revistaestudiostributarios.uchile.cl/index.php/RET/article/download/40727/42287/141497)
+
+17. FIJA DEFINICIONES TÉCNICAS Y APRUEBA TABLAS DE VALORES DE TERRENOS Y
+    > CONSTRUCCIONES PARA EL REAVALÚO DE LOS BIENES RAÍCES DE - SII,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/documentos/resoluciones/2015/reso118.pdf]{.underline}](https://www.sii.cl/documentos/resoluciones/2015/reso118.pdf)
+
+18. GUÍA PARA CALCULAR EL AVALÚO DE UN BIEN RAÍZ - SII, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2022/guia_claculo_avaluo.pdf]{.underline}](https://www.sii.cl/destacados/reavaluo/2022/guia_claculo_avaluo.pdf)
+
+19. GUÍA PARA CALCULAR EL AVALÚO DE UN BIEN RAÍZ - SII, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2022/guia_calculo_avaluo.pdf]{.underline}](https://www.sii.cl/destacados/reavaluo/2022/guia_calculo_avaluo.pdf)
+
+20. fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/bienes_raices/001_004_3846.htm#:\~:text=El%20aval%C3%BAo%20de%20terreno%20se,la%20jurisdicci%C3%B3n%20del%20bien%20ra%C3%ADz.]{.underline}](https://www.sii.cl/preguntas_frecuentes/bienes_raices/001_004_3846.htm#:~:text=El%20aval%C3%BAo%20de%20terreno%20se,la%20jurisdicci%C3%B3n%20del%20bien%20ra%C3%ADz.)
+
+21. anexo n° 2 1 tablas de clasificación de las construcciones - SII,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/documentos/resoluciones/2009/reso97_anexo2.pdf]{.underline}](https://www.sii.cl/documentos/resoluciones/2009/reso97_anexo2.pdf)
+
+22. anexo n° 2 tasación de construcciones 1 consideraciones generales -
+    > SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2019/reso144_anexo2.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2019/reso144_anexo2.pdf)
+
+23. Estudio de Precios de Construcción Proceso de Reavalúo de Bienes
+    > Raíces No Agrícolas, Año 2022 DESE UC - SII, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/estudio_precios_construccion_2022.pdf]{.underline}](https://www.sii.cl/destacados/reavaluo/estudio_precios_construccion_2022.pdf)
+
+24. REAVALÚO 2024 Bienes Raíces Agrícolas - Impuesto Territorial - SII,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo_agricola/2024/]{.underline}](https://www.sii.cl/destacados/reavaluo_agricola/2024/)
+
+25. Guía para calcular la contribución - SII \| Servicio de Impuestos
+    > Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo_agricola/2024/guiapasoapaso_contri.html]{.underline}](https://www.sii.cl/destacados/reavaluo_agricola/2024/guiapasoapaso_contri.html)
+
+26. Guía para calcular la contribución de un bien raíz - SII \| Servicio
+    > de Impuestos Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2019/guiapasoapaso_contribuciones.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2019/guiapasoapaso_contribuciones.html)
+
+27. Guía para calcular contribuciones de un bien raíz, sitio no
+    > edificado, propiedad abandonada o pozo lastrero - SII \| Servicio
+    > de Impuestos Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2025/4449-4452.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2025/4449-4452.html)
+
+28. Contribuciones - Impuestos - Tesorería General de la República -
+    > Educación Tributaria, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.tesoreria.cl/web/Contenido/EducacionTributaria/contribuciones.html]{.underline}](https://www.tesoreria.cl/web/Contenido/EducacionTributaria/contribuciones.html)
+
+29. ¿Qué es el Beneficio Adulto Mayor? - SII \| Servicio de Impuestos
+    > Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/avaluaciones/bam/descripcion_bam.html]{.underline}](https://www.sii.cl/destacados/avaluaciones/bam/descripcion_bam.html)
+
+30. Ley Chile - Ley 17235 - Biblioteca del Congreso Nacional de Chile,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.bcn.cl/leychile/navegar?idNorma=28849]{.underline}](https://www.bcn.cl/leychile/navegar?idNorma=28849)
+
+31. Impuesto Territorial - Reavalúo 2025 - SII, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2025/index.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2025/index.html)
+
+32. Reavalúo 2025 - Sii \| Servicio de impuestos internos -
+    > Procedimiento de Impugnación de Avalúos, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2025/4439-4440.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2025/4439-4440.html)
+
+33. Reavalúo 2024 - SII \| Servicio de Impuestos Internos, fecha de
+    > acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2024/4449-4451.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2024/4449-4451.html)
+
+34. Beneficio Adulto Mayor - Servicio Impuestos Internos, fecha de
+    > acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/avaluaciones/bam/]{.underline}](https://www.sii.cl/destacados/avaluaciones/bam/)
+
+35. SII \| Servicio de Impuestos Internos, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www.sii.cl/servicios_online/1048-inf_general_ley20732-2573.html]{.underline}](https://www.sii.cl/servicios_online/1048-inf_general_ley20732-2573.html)
+
+36. Cómo se aplica el beneficio - SII \| Servicio de Impuestos Internos,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/avaluaciones/bam/comoaplica_bam.html]{.underline}](https://www.sii.cl/destacados/avaluaciones/bam/comoaplica_bam.html)
+
+37. Rebaja contribuciones persona mayor - Ventanilla Única Social, fecha
+    > de acceso: noviembre 7, 2025,
+    > [[https://www.ventanillaunicasocial.gob.cl/ficha/168/rebaja-contribuciones-adulto-mayor]{.underline}](https://www.ventanillaunicasocial.gob.cl/ficha/168/rebaja-contribuciones-adulto-mayor)
+
+38. ¿Cuáles son los requisitos para obtener el beneficio que rebaja
+    > \... - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_6464.htm]{.underline}](https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_6464.htm)
+
+39. Qué requisitos debo cumplir - SII \| Servicio de Impuestos Internos,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/avaluaciones/bam/requisitos_bam.html]{.underline}](https://www.sii.cl/destacados/avaluaciones/bam/requisitos_bam.html)
+
+40. Los inmuebles acogidos a los beneficios del DFL-2, de 1959 \... -
+    > SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/bienes_raices/001_004_0616.htm]{.underline}](https://www.sii.cl/preguntas_frecuentes/bienes_raices/001_004_0616.htm)
+
+41. Avalúos y contribuciones de bienes raíces - SII \| Servicio de
+    > Impuestos Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/servicios_online/1048-.html]{.underline}](https://www.sii.cl/servicios_online/1048-.html)
+
+42. Consulta certificados de avalúo - SII, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www2.sii.cl/vicana/Menu/ConsultarAntecedentesSC]{.underline}](https://www2.sii.cl/vicana/Menu/ConsultarAntecedentesSC)
+
+43. Consultar Reavalúos y ROL semestral de contribuciones - SII \|
+    > Servicio de Impuestos Internos, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www.sii.cl/servicios_online/1048-2569.html]{.underline}](https://www.sii.cl/servicios_online/1048-2569.html)
+
+44. Cómo se hace para: Revisar y/o modificar avalúo de Bien Raíz - SII,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/como_se_hace_para/peticiones_administrativas/revisar_modificar_avaluo_terreno_bien_raiz.pdf]{.underline}](https://www.sii.cl/como_se_hace_para/peticiones_administrativas/revisar_modificar_avaluo_terreno_bien_raiz.pdf)
+
+45. Mi Reavalúo - Impuesto Territorial - SII, fecha de acceso: noviembre
+    > 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/]{.underline}](https://www.sii.cl/destacados/reavaluo/)

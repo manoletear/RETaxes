@@ -1,0 +1,1040 @@
+# Anatomía de un Equipo de Alto Rendimiento: Un Análisis Estructural de los Roles y Funciones en la Administración del Impuesto Territorial y la Tasación Masiva de Bienes Raíces
+
+## I. Análisis Estratégico de la Composición Organizacional en la Administración del Impuesto Territorial
+
+### Introducción a la Complejidad de la Tarea
+
+La administración del impuesto territorial y la valoración masiva de
+bienes raíces representan uno de los desafíos más complejos para
+cualquier administración tributaria. Esta tarea no es un proceso
+monolítico, sino una convergencia de múltiples disciplinas de alta
+especialización. Requiere la capacidad de valorar millones de
+propiedades de manera simultánea y equitativa, gestionar un catastro
+nacional dinámico, aplicar normativas fiscales complejas como la
+sobretasa a bienes inmuebles ^1^, y defender legalmente cada valoración
+ante los contribuyentes y los tribunales.
+
+Para ejecutar esta misión, no existe un \"profesional único\" que posea
+todas las habilidades necesarias. El éxito depende del diseño de un
+\"equipo perfecto\", entendido no como un grupo de individuos
+generalistas, sino como un ecosistema organizacional diseñado
+deliberadamente para la interdependencia de especialistas. El análisis
+de la estructura de la Subdirección de Avaluaciones (SDA) del Servicio
+de Impuestos Internos (SII) de Chile proporciona un caso de estudio de
+nivel experto sobre cómo se diseña, dota de personal y opera una
+maquinaria de este tipo.
+
+### El Modelo Estructural de la Subdirección de Avaluaciones (SDA)
+
+La arquitectura organizacional de la SDA es un reflejo directo de su
+compleja misión.^2^ La estructura no es jerárquica en el sentido
+tradicional de antigüedad, sino que está segmentada por disciplina
+funcional. Esta segmentación permite que cada componente de la cadena de
+valor de la tasación se desarrolle con la máxima profundidad técnica.
+
+Las unidades centrales que componen este ecosistema incluyen:
+
+1.  **Departamento de Tasaciones:** El centro neurálgico para la
+    > definición de la *metodología* de valoración.^2^
+
+2.  **Oficina de Geocatastro:** El núcleo de la inteligencia *espacial*
+    > y *estadística*, responsable de la gestión de datos
+    > georreferenciados.^2^
+
+3.  **Oficina de Operaciones:** El motor de *ejecución* y *producción*,
+    > responsable de transformar las valoraciones en hechos imponibles
+    > (giros) y de administrar procesos masivos como la Sobretasa.^1^
+
+4.  **Oficina de Proyectos:** El agente de *innovación* y *mejora
+    > continua*, responsable de la modernización de los sistemas y
+    > procesos.^2^
+
+5.  **Oficina de Calidad y Control de Gestión:** El mecanismo de
+    > *supervisión* y *monitoreo*, que mide el cumplimiento de los
+    > objetivos institucionales.^1^
+
+Esta segmentación es una estrategia organizacional deliberada. Separa
+funcionalmente la *creación de la metodología* (Tasaciones) del
+*análisis de datos espaciales* (Geocatastro) y de la *ejecución
+operativa* (Operaciones). Esta separación es fundamental. Un tasador
+tradicional, formado como Arquitecto o Ingeniero Agrónomo ^6^, es un
+experto en la valoración de propiedades físicas, pero no es, ni se
+espera que sea, un experto en teledetección satelital ^7^ o en la
+gestión de procesos de emisión masiva de giros de la Sobretasa de Bienes
+Inmuebles.^1^
+
+Al crear unidades ultra-especializadas como \"Geocatastro\" ^4^ y
+\"Operaciones\" ^1^, la organización permite que cada disciplina alcance
+la excelencia técnica sin la distracción de las funciones de las otras.
+El \"equipo perfecto\", por lo tanto, emerge de la *integración*
+gestionada de estos especialistas.
+
+### Liderazgo y Gestión: Los Integradores
+
+La cohesión de este ecosistema de especialistas recae en sus líderes.
+Los cargos directivos, como el/la Subdirector/a ^8^ y las Jefaturas de
+Departamento ^9^ y Oficina ^2^, no son roles puramente administrativos.
+Se seleccionan en base a un conjunto de competencias de gestión de alto
+nivel.
+
+Estos líderes deben poseer \"Visión Estratégica\", \"Gestión y Logro\",
+\"Liderazgo y Gestión de Equipos\" y, fundamentalmente, \"Mejora
+Continua e Innovación\".^11^ Su función principal no es ser el mejor
+tasador o el mejor analista de datos, sino *integrar* el trabajo de las
+unidades especializadas. Deben asegurar que la metodología definida por
+Tasaciones ^3^ sea implementable por los modelos de Geocatastro ^4^ y
+ejecutable a escala por Operaciones.^1^
+
+La siguiente tabla resume la arquitectura funcional de este equipo de
+alto rendimiento, vinculando la estructura organizacional con su misión
+específica y los perfiles que la habitan.
+
+**Tabla 1: Matriz Funcional de la Subdirección de Avaluaciones (SDA)**
+
++-----------------+-----------------+-----------------+-----------------+
+| **Unidad        | **Misión        | **Funciones     | **Perfiles      |
+| O               | Principal**     | Clave**         | Profesionales   |
+| rganizacional** |                 |                 | Dominantes**    |
++=================+=================+=================+=================+
+| **Departamento  | Definir y       | \- Diseñar      | \- Ingenieros   |
+| de Tasaciones** | proponer la     | metodologías de | Civiles,        |
+|                 | metodología     | tasación        | Arquitectos.^6^ |
+|                 | técnica de      | (urbana y       |                 |
+|                 | tasación        | agrícola).^3^   | \- Ingenieros   |
+|                 | masiva.         |                 | Agrónomos,      |
+|                 |                 | \- Preparar y   | Forestales.^6^  |
+|                 |                 | coordinar los   |                 |
+|                 |                 | procesos de     | \- Analistas de |
+|                 |                 | reavalúo        | Datos.^12^      |
+|                 |                 | nacional.^3^    |                 |
+|                 |                 |                 |                 |
+|                 |                 | \- Estudiar los |                 |
+|                 |                 | Instrumentos de |                 |
+|                 |                 | Planificación   |                 |
+|                 |                 | Territorial.^4^ |                 |
++-----------------+-----------------+-----------------+-----------------+
+| **Oficina de    | Gestionar y     | \- Implementar  | \-              |
+| Geocatastro**   | explotar la     | el uso de       | Especialistas   |
+|                 | información     | herramientas    | GIS y           |
+|                 | geoespacial     | gráficas,       | Georref         |
+|                 | para la         | espaciales y    | erenciación.^7^ |
+|                 | tasación y el   | e               |                 |
+|                 | catastro.       | stadísticas.^4^ | \-              |
+|                 |                 |                 | Especialistas   |
+|                 |                 | \- Gestionar la | en              |
+|                 |                 | automatización  | Te              |
+|                 |                 | del análisis    | ledetección.^7^ |
+|                 |                 | geoespacial.^4^ |                 |
+|                 |                 |                 | \- Ingenieros   |
+|                 |                 | \- Mantener     | Geomáticos.^15^ |
+|                 |                 | Mapas Digitales |                 |
+|                 |                 | ^13^ y Planos   |                 |
+|                 |                 | de Precios.^14^ |                 |
++-----------------+-----------------+-----------------+-----------------+
+| **Oficina de    | Ejecutar los    | \- Gestionar    | \-              |
+| Operaciones**   | procesos        | procesos de la  | Profesionales   |
+|                 | masivos del     | Sobretasa a     | de Operaciones. |
+|                 | impuesto        | Bienes          |                 |
+|                 | territorial y   | Inmuebles.^1^   | \- Jefes de     |
+|                 | el catastro.    |                 | Proyecto (ej.   |
+|                 |                 | \- Administrar  | Sobretasa).^12^ |
+|                 |                 | el Área de      |                 |
+|                 |                 | Operaciones     | \- Analistas de |
+|                 |                 | Catastro y      | Negocios.^12^   |
+|                 |                 | Con             |                 |
+|                 |                 | tribuciones.^1^ |                 |
+|                 |                 |                 |                 |
+|                 |                 | \- Emitir giros |                 |
+|                 |                 | y               |                 |
+|                 |                 | r               |                 |
+|                 |                 | esoluciones.^1^ |                 |
++-----------------+-----------------+-----------------+-----------------+
+| **Oficina de    | Liderar la      | \- Estandarizar | \- Jefes de     |
+| Proyectos**     | modernización y | el traspaso de  | Proyecto.^5^    |
+|                 | mejora continua | información     |                 |
+|                 | de los sistemas | (ej.            | \- Ingenieros   |
+|                 | de avalúos.     | Municipios).^5^ | Civiles         |
+|                 |                 |                 | Industriales,   |
+|                 |                 | \- Gestionar la | Ingenieros      |
+|                 |                 | puesta en       | C               |
+|                 |                 | marcha de       | omerciales.^16^ |
+|                 |                 | nuevos sistemas |                 |
+|                 |                 | de bienes       | \- Analistas de |
+|                 |                 | raíces.^5^      | Negocios de     |
+|                 |                 |                 | Mod             |
+|                 |                 | \- Completar y  | ernización.^12^ |
+|                 |                 | depurar la base |                 |
+|                 |                 | de datos (ej.   |                 |
+|                 |                 | RUT de          |                 |
+|                 |                 | pr              |                 |
+|                 |                 | opietarios).^5^ |                 |
++-----------------+-----------------+-----------------+-----------------+
+| **Oficina de    | Monitorear el   | \- Generar y    | \-              |
+| Calidad y       | rendimiento y   | actualizar      | Profesionales   |
+| Control de      | el cumplimiento | indicadores de  | de Control de   |
+| Gestión**       | de los          | gestión global  | Gestión.        |
+|                 | objetivos.      | y regional.^1^  |                 |
+|                 |                 |                 | \- Auditores.   |
+|                 |                 | \-              |                 |
+|                 |                 | Retroalimentar  | \- Ingenieros   |
+|                 |                 | a las jefaturas | C               |
+|                 |                 | sobre el        | omerciales.^16^ |
+|                 |                 | cumplimiento de |                 |
+|                 |                 | objetivos.^1^   |                 |
+|                 |                 |                 |                 |
+|                 |                 | \- Administrar  |                 |
+|                 |                 | el Área de      |                 |
+|                 |                 | Calidad y       |                 |
+|                 |                 | Atención.^1^    |                 |
++-----------------+-----------------+-----------------+-----------------+
+
+## II. El Núcleo Técnico Tradicional: El Equipo de Tasación y Catastro
+
+### El Perfil del Fiscalizador Tasador
+
+El pilar histórico y fundamental de cualquier sistema de valoración de
+bienes raíces es el *Fiscalizador Tasador*.^6^ Este rol es la fuente de
+la verdad en terreno (*ground truth*) y requiere un perfil técnico
+híbrido que combina conocimientos de ingeniería, arquitectura,
+agronomía, análisis de datos y servicio al contribuyente.
+
+#### Las Cualificaciones: Una Multidisciplinariedad Deliberada
+
+El requisito de cualificación para un tasador fiscal revela la
+naturaleza dual de la tarea de tasación. Las postulaciones solicitan una
+gama específica de títulos: **Ingeniero Civil, Ingeniero Agrónomo,
+Ingeniero Forestal, Arquitecto, Ingeniero Constructor o Constructor
+Civil**.^6^
+
+Esta diversidad no es para crear redundancia, sino para una
+especialización imperativa. La Ley N° 17.235 sobre Impuesto Territorial
+^6^ distingue fundamentalmente entre bienes raíces no agrícolas
+(urbanos) y bienes raíces agrícolas.
+
+-   **Perfil Urbano (Arquitecto, Constructor Civil, Ingeniero Civil):**
+    > Estos profesionales son esenciales para la tasación no agrícola.
+    > Su formación les permite analizar la calidad de la construcción,
+    > los materiales, la tipología de las edificaciones y el impacto de
+    > los planos reguladores urbanos, factores clave en la valoración de
+    > propiedades urbanas.
+
+-   **Perfil Agrícola (Ingeniero Agrónomo, Ingeniero Forestal):** Estos
+    > perfiles son indispensables para la tasación de predios
+    > agrícolas.^6^ A diferencia de una propiedad urbana, el valor de un
+    > predio agrícola no reside primariamente en su construcción, sino
+    > en la *capacidad productiva del suelo*.^17^ La circular N° 37 de
+    > 2015 ^18^ confirma la vigencia de las instrucciones que requieren
+    > a estos profesionales (agrónomos, forestales o civiles) para la
+    > tasación de predios rústicos, debiendo estar inscritos en un
+    > registro especial del SII.^18^ Un arquitecto no puede determinar
+    > la capacidad productiva de un suelo; un agrónomo sí.
+
+Un equipo perfecto *debe* contener esta mezcla de perfiles para cumplir
+con el marco legal y técnico de la tasación.
+
+#### Funciones y Responsabilidades: El Rol Híbrido
+
+El *Fiscalizador Tasador* no es un simple valuador. Sus funciones ^6^
+demuestran que es un profesional integral que opera en la intersección
+de la ley, los datos y el servicio público:
+
+1.  **Rol de Cumplimiento Legal/Técnico:** \"Aplicación de la normativa
+    > legal, técnica y administrativa sobre el Impuesto Territorial,
+    > Código Tributario y otras normas\".^6^
+
+2.  **Rol de Administrador de Datos:** \"Análisis, manejo y
+    > actualización del catastro regional de bienes raíces\".^6^
+
+3.  **Rol de Servicio al Cliente y Defensa de Primera Línea:**
+    > \"Atención de público\" y \"Excelente manejo de relaciones
+    > interpersonales\".^6^
+
+4.  **Rol de Colaborador y Gestor:** \"Capacidad de trabajo en equipo,
+    > organización y planificación del trabajo\".^6^
+
+### El Departamento de Tasaciones: El Cerebro Metodológico
+
+Mientras los fiscalizadores tasadores operan a nivel regional y de
+terreno, el *Departamento de Tasaciones* funciona como el centro
+metodológico a nivel nacional.^2^
+
+Su función no es tasar propiedades individuales, sino \"diseñar e
+implementar las metodologías de tasación\" ^4^ y \"proponer al Director
+la metodología técnica de tasación de bienes raíces\".^3^ Es esta unidad
+la que prepara y coordina los procesos masivos de reavalúo ^3^,
+estudiando los Instrumentos de Planificación Territorial para generar
+las herramientas que luego aplicarán los equipos regionales.^4^
+
+### La Evolución del Rol del Tasador en la Era de los Datos
+
+Es crucial entender que el rol del *Fiscalizador Tasador* ^6^ está en
+plena evolución. En un modelo de tasación masiva moderno, impulsado por
+la *Oficina de Geocatastro* ^4^ y los *Especialistas en Data Analytics*
+^12^, el tasador ya no valora millones de propiedades una por una.
+
+Su rol ha mutado de ser un *valuador primario* a ser un *validador de
+modelos* y un *gestor de excepciones*. La cadena de trabajo moderna es
+la siguiente:
+
+1.  **Alimentación del Modelo:** Los tasadores proveen los datos de
+    > campo (calidad de construcción, tipo de suelo, estado de
+    > conservación) que son la materia prima para los modelos
+    > estadísticos.
+
+2.  **Validación del Modelo:** Validan los resultados que arrojan los
+    > modelos de tasación masiva ^19^, usando su experiencia técnica
+    > para asegurar que los valores estimados sean lógicos y
+    > defendibles.
+
+3.  **Gestión de Excepciones:** Manejan los casos complejos que el
+    > modelo no puede resolver: propiedades únicas, con usos mixtos
+    > complejos o con problemas catastrales.
+
+4.  **Defensa Técnica:** Se convierten en la cara técnica experta ante
+    > el contribuyente (\"Atención de público\" ^6^), capaces de
+    > explicar *por qué* el modelo (basado en datos de mercado, calidad
+    > constructiva y ubicación) ha arrojado un determinado valor para su
+    > propiedad.
+
+## III. La Fundación Geoespacial y Analítica: El Equipo de Geocatastro y Data Science
+
+La modernización de la administración tributaria de bienes raíces se
+fundamenta en la capacidad de gestionar y analizar datos a escala
+masiva. El núcleo técnico tradicional (Sección II) se complementa ahora
+con un equipo analítico avanzado que representa la vanguardia de la
+tasación.
+
+### La Revolución del Geocatastro
+
+La *Oficina de Geocatastro* ^2^ es la unidad que transforma el catastro
+de un simple registro de propiedades a un modelo espacial y estadístico
+vivo. Su función, definida en la Resolución Exenta N° 26 de 2022, no es
+solo \"hacer mapas\", sino \"fomentar, gestionar e implementar el uso de
+recursos, información, métodos y herramientas gráficas, espaciales y
+estadísticas\".^4^
+
+Su objetivo es la \"implementación y automatización de los procesos de
+análisis de información geoespacial\".^4^ En la práctica, esta oficina
+es la responsable de crear y mantener los \"Mapas Digitales\" ^13^, los
+\"Planos de precios\" ^14^ y, lo más importante, las \"Áreas
+Homogéneas\".^20^
+
+Estas \"Áreas Homogéneas\" (definidas como Plataformas de Valores de
+Terrenos por Zonas Homogéneas, PVTZH) son la unidad de análisis
+fundamental para la tasación masiva.^21^ Son zonas (urbanas, rurales o
+mixtas) que agrupan terrenos con características y valores similares,
+permitiendo aplicar metodologías de valoración de forma coherente y
+masiva.^21^
+
+### Los Nuevos Perfiles Técnicos: El Equipo de Datos
+
+Para operar la Oficina de Geocatastro y el Departamento de Tasaciones en
+un entorno de *big data*, se requieren nuevos perfiles técnicos que no
+existían en el modelo de tasación tradicional.^7^
+
+#### Rol 1: Profesional Especialista en Gestión de SIG y Georreferenciación
+
+Este es el experto en *Sistemas de Información Geográfica (GIS)*.^7^ Su
+función es gestionar la \"información geoespacial\".^4^ Es el
+profesional que asegura que cada propiedad (identificada por su ROL)
+esté correctamente ubicada en el espacio (georreferenciada). Conecta el
+catastro alfanumérico (la base de datos) con el catastro gráfico (el
+mapa), lo cual es esencial para determinar a qué Área Homogénea ^20^
+pertenece una propiedad y, por tanto, qué valor de suelo le corresponde.
+
+#### Rol 2: Profesional Especialista en Georreferenciación y Teledetección
+
+Este rol va un paso más allá del GIS.^7^ La \"Teledetección\" (uso de
+imágenes satelitales, aéreas o de drones) permite al SII *verificar* y
+*actualizar* el catastro de forma masiva y automatizada, sin depender
+exclusivamente de la visita a terreno.
+
+Estos especialistas pueden, por ejemplo, desarrollar procesos para
+detectar automáticamente nuevas construcciones, ampliaciones, piscinas o
+cambios en el uso del suelo (como un predio que deja de ser agrícola
+para convertirse en un loteo urbano).^22^ Esto es vital para combatir la
+evasión y mantener la base imponible actualizada.
+
+#### Rol 3: Profesional Especialista Data Analitycs
+
+Este es el *Científico de Datos* de la organización.^12^ Su perfil,
+descrito en la industria, implica \"recopilar, limpiar e interpretar
+datos\" ^23^ y \"desarrollar algoritmos predictivos\".^24^ Utilizan un
+conjunto de herramientas técnicas avanzadas como lenguajes de bases de
+datos (SQL) y lenguajes de programación estadística (Python, R) ^23^,
+así como herramientas de visualización (Power BI, Tableau).^23^
+
+En el contexto de la SDA, la función de este Analista de Datos ^12^ es
+tomar la inmensa cantidad de información (datos catastrales, datos
+geoespaciales, datos de transacciones de mercado) y construir los
+*modelos de tasación masiva*.^19^ Estos modelos estadísticos (como los
+de regresión múltiple o *machine learning*) son el corazón que predice
+el valor de millones de propiedades simultáneamente, superando la
+escasez de datos transaccionales o la heterogeneidad del mercado que
+desafían a los sistemas tradicionales.^19^
+
+### La Fusión de Datos como Eje Central
+
+El \"equipo perfecto\" moderno ya no se define por el equipo de
+tasadores (Sección II) *o* el equipo de datos (Sección III) por
+separado. Se define por la *simbiosis* entre ambos.
+
+Esta cadena de valor fusionada es la clave del éxito de un sistema de
+tasación masiva:
+
+1.  El *Fiscalizador Tasador* ^6^ provee el \"ground truth\" (ej.
+    > calidad de construcción, estado de conservación, capacidad de
+    > suelo agrícola ^17^).
+
+2.  El *Especialista GIS* ^7^ ubica esa propiedad en el mapa y la asigna
+    > a un \"Área Homogénea\" ^20^ definida por la *Oficina de
+    > Geocatastro*.^4^
+
+3.  El *Especialista en Teledetección* ^7^ monitorea cambios en esa
+    > propiedad y en sus vecinas desde el aire, actualizando el
+    > catastro.^22^
+
+4.  El *Analista de Datos* ^12^ toma todos esos *inputs*, los cruza con
+    > datos de transacciones de mercado (precios de venta) y construye
+    > un modelo estadístico que *predice* el valor de miles de
+    > propiedades similares.
+
+5.  El *Departamento de Tasaciones* ^3^ audita, valida y oficializa este
+    > modelo, convirtiéndolo en la \"metodología técnica de tasación\"
+    > ^3^ para el próximo reavalúo.
+
+Sin uno de estos perfiles, la cadena se rompe. Sin el tasador, el modelo
+no tiene datos de calidad. Sin el analista de datos, los datos de
+tasación no pueden escalar a millones de propiedades.
+
+**Tabla 2: Perfiles Técnicos Centrales para la Valoración y Gestión de
+Datos**
+
++-----------------+-----------------+-----------------+-----------------+
+| **Título del    | **              | **Herramientas  | **Funciones     |
+| Rol (Cargo)**   | Cualificaciones | / Tecnologías   | Principales**   |
+|                 | Académicas      | Clave**         |                 |
+|                 | Requeridas**    |                 |                 |
++=================+=================+=================+=================+
+| **Fiscalizador  | \- Ingeniero    | \- Ley N°       | \- Aplicar      |
+| Tasador** ^6^   | Civil           | 17.235 ^6^      | normativa       |
+|                 |                 |                 | técnica y       |
+|                 | \- Arquitecto   | \- Código       | legal.          |
+|                 |                 | Tributario ^6^  |                 |
+|                 | \- Constructor  |                 | \- Actualizar   |
+|                 | Civil           | \- Microsoft    | el catastro     |
+|                 |                 | Office ^6^      | regional.       |
+|                 | \- Ingeniero    |                 |                 |
+|                 | Agrónomo        | \- Metodologías | \- Atención de  |
+|                 |                 | de tasación     | público y       |
+|                 | \- Ingeniero    | (agrícola y     | defensa técnica |
+|                 | Forestal ^6^    | urbana) ^17^    | de 1ra línea.   |
+|                 |                 |                 |                 |
+|                 |                 |                 | \- Proveer y    |
+|                 |                 |                 | validar datos   |
+|                 |                 |                 | para modelos    |
+|                 |                 |                 | masivos. ^6^    |
++-----------------+-----------------+-----------------+-----------------+
+| **Profesional   | \- Ingeniero    | \- GIS (ArcGIS, | \- Gestionar y  |
+| Especialista en | Geomático       | QGIS)           | automatizar el  |
+| Gestión de SIG  |                 |                 | análisis de     |
+| y               | \- Geógrafo     | \- Bases de     | información     |
+| Georr           |                 | datos           | geoespacial.^4^ |
+| eferenciación** | \- Ingeniero en | espaciales      |                 |
+| ^7^             | Información (o  | (PostGIS)       | \- Mantener la  |
+|                 | similar) ^15^   |                 | cartografía     |
+|                 |                 | \- SQL          | digital y       |
+|                 |                 |                 | planos de       |
+|                 |                 | \-              | precios.^14^    |
+|                 |                 | Geo             |                 |
+|                 |                 | rreferenciación | \- Vincular el  |
+|                 |                 |                 | catastro        |
+|                 |                 |                 | alfanumérico    |
+|                 |                 |                 | con el gráfico. |
++-----------------+-----------------+-----------------+-----------------+
+| **Profesional   | \- Geógrafo     | \- Software de  | \- Monitorear   |
+| Especialista en |                 | Teledetección   | cambios en el   |
+| Teledetección** | \- Ingeniero    | (ENVI, ERDAS)   | uso del suelo.  |
+| ^7^             | Forestal        |                 |                 |
+|                 |                 | \- Análisis de  | \- Detectar     |
+|                 | \- Ingeniero    | imágenes        | construccion    |
+|                 | Geomático (con  | sat             | es/ampliaciones |
+|                 | e               | elitales/aéreas | no              |
+|                 | specialización) |                 | declaradas.^22^ |
+|                 |                 | \- Python (para |                 |
+|                 |                 | automatización) | \- Actualizar   |
+|                 |                 |                 | masivamente el  |
+|                 |                 |                 | catastro usando |
+|                 |                 |                 | imágenes.       |
++-----------------+-----------------+-----------------+-----------------+
+| **Profesional   | \- Ingeniero    | \- SQL ^26^     | \- Recopilar,   |
+| Especialista    | Civil           |                 | limpiar y       |
+| Data            | Matemático ^16^ | \- Python / R   | organizar       |
+| Analitycs**     |                 | ^23^            | grandes         |
+| ^12^            | \- Estadístico  |                 | volúmenes de    |
+|                 | ^25^            | \- Power BI /   | datos.^23^      |
+|                 |                 | Tableau ^23^    |                 |
+|                 | \- Ingeniero    |                 | \- Desarrollar  |
+|                 | Informático     | \- Machine      | algoritmos      |
+|                 |                 | Learning /      | predictivos     |
+|                 | \- Ingeniero    | Modelos         | para tasación   |
+|                 | Comercial (con  | Predictivos     | masiva.^19^     |
+|                 | e               | ^24^            |                 |
+|                 | specialización) |                 | \- Generar      |
+|                 |                 |                 | visualizaciones |
+|                 |                 |                 | y dashboards    |
+|                 |                 |                 | para toma de    |
+|                 |                 |                 | decisiones.     |
++-----------------+-----------------+-----------------+-----------------+
+
+## IV. El Soporte Crítico: El Equipo de Desarrollo y Soporte Informático
+
+El sistema de avalúos y contribuciones moderno no funciona con papel y
+lápiz; es, en esencia, un sistema de tecnología de la información (TI)
+masivo y complejo. La plataforma debe soportar el almacenamiento de
+millones de registros catastrales, ejecutar modelos predictivos,
+interactuar con sistemas geoespaciales y atender a millones de
+contribuyentes a través de portales web.^14^
+
+El \"equipo perfecto\" no puede simplemente \"comprar\" una solución
+genérica; debe construir, mantener y evolucionar su propia plataforma de
+software a medida.
+
+### La Unidad Especializada: Departamento Informática Avaluaciones
+
+La decisión organizacional más crítica en el ámbito tecnológico es la
+creación de un departamento de TI dedicado: el **Departamento
+Informática Avaluaciones y Asistencia al Contribuyente**.^7^
+
+La existencia de esta unidad, en lugar de depender de un pool genérico
+de TI, es fundamental. El Impuesto Territorial ^28^ y el catastro son un
+\"dominio de negocio\" con reglas únicas y una complejidad extrema (ej.
+reavalúos ^14^, sobretasa ^1^, ley 17.235 ^6^). Un desarrollador de
+software genérico ^30^ no entendería las complejidades de estos
+procesos.
+
+Al *empotrar* un equipo de TI dentro de la esfera de Avaluaciones, la
+organización se asegura de que los desarrolladores y jefes de proyecto
+entiendan profundamente el negocio que están sirviendo. La función
+mandatada de este departamento es \"atender todos los desarrollos
+informáticos relacionados con la plataforma de soluciones que
+soporta\... el impuesto territorial\".^28^ Esto acelera el desarrollo,
+reduce errores de traducción entre usuarios (tasadores) y
+desarrolladores, y permite una \"hoja de ruta evolutiva\" ^31^
+coherente.
+
+### Roles Clave dentro del Equipo de TI
+
+Dentro de este departamento especializado, emergen roles críticos que
+garantizan que las metodologías de tasación (Sección II) y los modelos
+de datos (Sección III) se conviertan en sistemas funcionales.
+
+#### Rol 1: Jefe de Proyectos Área Impuesto Territorial
+
+Este cargo, ubicado dentro del departamento de informática ^7^, es el
+*traductor* y *gestor* fundamental. Es un profesional (probablemente un
+Ingeniero Informático o Ingeniero Civil Industrial) que sirve de puente
+entre el mundo del negocio (la Subdirección de Avaluaciones) y el mundo
+técnico (los desarrolladores).
+
+Su función es tomar las necesidades del *Departamento de Tasaciones* ^3^
+(ej. \"necesitamos un nuevo módulo para el reavalúo\") o de la *Oficina
+de Geocatastro* ^4^ (ej. \"necesitamos integrar un nuevo visor de
+mapas\") y convertirlas en un proyecto de software gestionable, con
+plazos, presupuestos y entregables. Gestiona la \"hoja de ruta
+evolutiva\" ^31^ de la plataforma tecnológica de Avaluaciones.
+
+#### Rol 2: Desarrollador/a Web Full Stack
+
+Este es el constructor.^30^ Es el profesional técnico que escribe el
+código de las aplicaciones. El término \"Full Stack\" implica que puede
+trabajar tanto en el *frontend* (lo que ve el contribuyente en el portal
+web, como \"Mi Reavalúo\" ^14^, o los \"Mapas Digitales\" ^13^) como en
+el *backend* (la lógica de negocio, las bases de datos y los cálculos
+que ocurren en los servidores del SII).^28^
+
+#### Rol 3: Ingeniero/a de Soporte
+
+Este es el profesional que asegura la continuidad operativa.^30^
+Mientras el desarrollador construye cosas nuevas, el ingeniero de
+soporte se asegura de que la plataforma existente funcione 24/7. Su rol
+es crítico durante eventos de alta demanda, como la publicación de un
+reavalúo ^14^ o el vencimiento de un pago de contribuciones,
+garantizando que los sistemas no colapsen y que los tasadores en
+regiones puedan realizar su trabajo.
+
+## V. El Pilar Normativo y Jurídico: El Equipo Legal y de Defensa Tributaria
+
+Cada avalúo fiscal es un acto administrativo de autoridad que determina
+la base de un impuesto. Como tal, debe ser legalmente impecable, estar
+fundamentado en la normativa vigente y ser defendible ante los
+tribunales. Un \"equipo perfecto\" de tasación es inútil si sus
+decisiones son revocadas sistemáticamente por los tribunales.
+
+Por ello, el equipo requiere un componente legal bifronte: *preventivo*
+(normativo) y *reactivo* (defensa).
+
+### La Función Preventiva (Normativa)
+
+Antes de que se tase una sola propiedad, debe existir un marco legal
+claro que lo autorice. Esta función recae en unidades como la
+**Subdirección Normativa** ^33^ y la **Subdirección Jurídica**.^34^
+
+Estos equipos son los *arquitectos legales* del proceso. Su función es
+interpretar la ley (ej. Ley 17.235, Código Tributario) y traducirla en
+instrucciones administrativas vinculantes. Lo hacen a través de dos
+instrumentos clave:
+
+1.  **Resoluciones:** Documentos que establecen la organización,
+    > funciones y metodologías. Por ejemplo, la Resolución Exenta N° 26
+    > ^1^ es la que define las funciones de la Oficina de Geocatastro y
+    > la Oficina de Operaciones. La Resolución Exenta N° 37 ^3^ define
+    > las del Departamento de Tasaciones.
+
+2.  **Circulares:** Instrucciones dirigidas a los funcionarios y/a los
+    > contribuyentes sobre cómo se aplica la ley.^34^ Por ejemplo, la
+    > Circular N° 37 de 2015 ^18^ instruye sobre el registro de
+    > tasadores de predios agrícolas.
+
+El *Fiscalizador Tasador* ^6^ y el *Analista de Datos* ^12^ no actúan en
+el vacío; ejecutan las metodologías que la *Subdirección Normativa* ^33^
+ha consagrado en una Circular o Resolución. Esto da *certeza jurídica* a
+todo el proceso de tasación masiva.
+
+### La Función Reactiva (Defensa)
+
+Inevitablemente, los contribuyentes (propietarios o municipalidades) que
+no estén de acuerdo con el avalúo ejercerán su derecho a impugnarlo.^32^
+Esta impugnación tiene dos vías principales ^37^:
+
+1.  **Recurso de Reposición Administrativa (RAV):** Se presenta ante el
+    > propio SII ^13^ para una revisión interna.
+
+2.  **Reclamo ante el Tribunal Tributario y Aduanero (TTA):** Una vía
+    > judicial donde un tribunal independiente revisa el caso.^37^
+
+Aquí es donde entra el **Abogado** especialista en litigación
+tributaria.^12^ El perfil de este rol ^40^ es claro: \"Análisis de
+información jurídica y de materias de índole tributaria\", \"Elaboración
+de informes jurídicos\", \"Asesoría legal a diferentes áreas\" y,
+crucialmente, \"Hacerse cargo de litigios en causas tributarias\".^40^
+
+El abogado es el defensor del SII ante el TTA.^38^ Su trabajo es
+proteger los intereses fiscales y defender la legalidad del avalúo
+determinado.^41^
+
+### La Alianza de Defensa Tácito-Legal
+
+El \"equipo perfecto\" no tiene a sus abogados aislados del área
+técnica. Por el contrario, el *Abogado* ^40^ y el *Fiscalizador Tasador*
+^6^ (junto con el especialista de Geocatastro ^4^) forman una *alianza
+de defensa* inseparable.
+
+Cuando un contribuyente presenta un reclamo ante el TTA ^38^, se inicia
+un litigio. El *Abogado* ^40^ es el litigante, pero el *Tasador* ^6^ y
+el *Especialista GIS* ^4^ actúan como los *peritos* que proveen la
+evidencia técnica.
+
+La defensa del abogado se basa *completamente* en la calidad del informe
+técnico del tasador y en la robustez estadística del modelo de
+Geocatastro. El abogado argumentará que la tasación es legal porque el
+tasador siguió meticulosamente la *metodología* definida en la
+*Circular* (función preventiva) y que el valor es correcto según la
+evidencia técnica (fotos, planos, calidad constructiva, valor del suelo
+del Área Homogénea).
+
+Si el tasador cometió un error, no siguió la *Circular* ^34^, o el
+modelo de Geocatastro ^4^ es defectuoso, la defensa legal ^40^ colapsa,
+y el Fisco pierde el caso.^39^ Esta codependencia es el pilar de la
+defensa tributaria.
+
+## VI. La Maquinaria Operativa: El Equipo de Operaciones, Proyectos y Calidad
+
+Las secciones II y III (Tasación y Geocatastro) definen el *valor*. La
+sección IV (TI) construye la *plataforma*. La sección V (Legal)
+establece el *marco*. Pero se necesita un equipo que gobierne la
+*ejecución* diaria, la *innovación* futura y el *monitoreo* del
+rendimiento. Esta es la maquinaria operativa de la SDA.
+
+### Rol 1: Oficina de Operaciones (El Motor de Procesos)
+
+Esta oficina es el motor de producción.^1^ Su función no es diseñar
+metodologías, sino *ejecutarlas* a escala masiva. La *Oficina de
+Operaciones* toma los avalúos (generados por Tasaciones y Geocatastro) y
+los convierte en impuestos.
+
+Sus funciones clave incluyen \"gestionar los procesos relacionados con
+la Sobretasa a los Bienes Inmuebles\" y la \"emisión de los giros y
+resoluciones respectivas\".^1^ Esta oficina administra las áreas de
+\"Operaciones Catastro y Contribuciones\" y \"Operaciones
+Sobretasa\".^1^ Son los responsables de que el catastro se mantenga al
+día y que los impuestos se calculen y emitan correctamente cada
+semestre.
+
+### Rol 2: Oficina de Proyectos (El Motor de Cambio)
+
+En cualquier organización de alto rendimiento, existe una tensión
+fundamental entre \"operar\" el sistema actual y \"construir\" el
+sistema del futuro. La *Oficina de Proyectos* ^2^ es el motor de cambio
+de la SDA.
+
+Su función es gestionar la innovación y la mejora continua. Un análisis
+de sus proyectos ^5^ revela su propósito:
+
+-   \"Estandarización y normalización del traspaso de la información del
+    > catastro\... desde los Municipios al SII.\"
+
+-   \"Completar los datos de RUT para los propietarios de Bienes
+    > Raíces.\"
+
+-   \"Preparación de la Base de Datos para la puesta en marcha del nuevo
+    > sistema de bienes raíces.\"
+
+-   \"Sistema de reclamos de contribuyentes de avaluaciones.\"
+
+Los perfiles profesionales que habitan esta oficina son expertos en
+*gestión del cambio*. Incluyen al *Analista de Negocios Modernización
+Sistemas Bienes Raíces* ^12^, el *Jefe de Proyectos Sobretasa* ^12^, y
+profesionales con formación en **Ingeniería Civil Industrial** o
+**Ingeniería Comercial** ^16^, que están capacitados para la
+optimización de procesos y la gestión de proyectos complejos.
+
+La separación de *Operaciones* ^1^ y *Proyectos* ^5^ es una decisión
+organizacional brillante. Evita que la *urgencia* de las operaciones
+diarias (ejecutar los giros de hoy) canibalice los recursos destinados a
+la *importancia* de la innovación futura (construir el nuevo sistema de
+catastro).
+
+### Rol 3: Oficina de Calidad y Control de Gestión (El Tablero de Control)
+
+Si Operaciones ejecuta y Proyectos innova, la *Oficina de Calidad y
+Control de Gestión* ^1^ actúa como el tablero de control independiente.
+
+Su función es \"establecer, generar y actualizar sistemática y
+oportunamente instrumentos e indicadores de gestión global y
+regional\".^1^ Esta oficina mide el rendimiento de todo el sistema.
+Responde preguntas clave: ¿Estamos cumpliendo los plazos del reavalúo?
+¿Cuál es nuestra tasa de reclamos en el TTA? ¿Están las oficinas
+regionales aplicando la metodología de tasación de manera uniforme?
+
+Luego, esta oficina \"comunica y retroalimenta a las jefaturas\... sobre
+el grado de cumplimiento de los objetivos institucionales\" ^1^,
+actuando como un árbitro independiente que informa si las *Operaciones*
+son eficientes y si los *Proyectos* están entregando el valor prometido.
+
+**Tabla 3: Ecosistema de Soporte Crítico (Jurídico, Tecnológico y
+Operativo)**
+
++-----------------+-----------------+-----------------+-----------------+
+| **Dominio de    | **Unidad / Rol  | **Función       | **Interacción   |
+| Soporte**       | Clave**         | Principal en el | Crítica**       |
+|                 |                 | Proceso de      |                 |
+|                 |                 | Avaluaciones**  |                 |
++=================+=================+=================+=================+
+| **Soporte       | **Depto.        | \- Desarrollar  | \- **Con        |
+| Tecnológico**   | Informática     | y mantener la   | Tasaciones:**   |
+|                 | Avaluaciones**  | plataforma de   | Desarrolla las  |
+|                 | ^28^            | software que    | herramientas    |
+|                 |                 | soporta el      | internas que    |
+|                 | \- Jefe de      | catastro, la    | usan los        |
+|                 | Proyecto IT ^7^ | tasación masiva | tasadores.      |
+|                 |                 | y el impuesto   |                 |
+|                 | \-              | t               | \- **Con        |
+|                 | Desarrollador   | erritorial.^28^ | Geocatastro:**  |
+|                 | Full Stack ^30^ |                 | Integra los     |
+|                 |                 | \- Traducir las | visores de      |
+|                 |                 | necesidades de  | mapas ^13^ en   |
+|                 |                 | negocio (ej.    | los sistemas.   |
+|                 |                 | reavalúo) en    |                 |
+|                 |                 | soluciones de   | \- **Con        |
+|                 |                 | TI.^7^          | Co              |
+|                 |                 |                 | ntribuyentes:** |
+|                 |                 |                 | Mantiene los    |
+|                 |                 |                 | portales        |
+|                 |                 |                 | públicos.^14^   |
++-----------------+-----------------+-----------------+-----------------+
+| **Soporte       | **Subdirección  | \- **Preventivo | \- **Con        |
+| Juríd           | Normativa**     | (Normativa):**  | Tasaciones:**   |
+| ico-Normativo** | ^33^            | Redactar las    | El Abogado usa  |
+|                 |                 | Circulares ^34^ | el informe del  |
+|                 | \- Abogado      | y Resoluciones  | Tasador ^6^     |
+|                 | (Litigante)     | ^4^ que definen | como prueba     |
+|                 | ^40^            | la metodología  | pericial en el  |
+|                 |                 | legal de        | TTA.            |
+|                 |                 | tasación.       |                 |
+|                 |                 |                 | \- **Con        |
+|                 |                 | \- **Reactivo   | Geocatastro:**  |
+|                 |                 | (Abogado):**    | La defensa      |
+|                 |                 | Defender los    | legal se apoya  |
+|                 |                 | avalúos         | en la robustez  |
+|                 |                 | impugnados ante | estadística del |
+|                 |                 | los Tribunales  | modelo de Áreas |
+|                 |                 | Tributarios y   | Homogéneas.^20^ |
+|                 |                 | Aduaneros       |                 |
+|                 |                 | (TTA).^38^      |                 |
++-----------------+-----------------+-----------------+-----------------+
+| **Soporte       | **Oficina de    | \-              | \- **Con        |
+| Operativo y de  | Operaciones**   | *               | Tasaciones      |
+| Gestión**       | ^1^             | *Operaciones:** | /Geocatastro:** |
+|                 |                 | Ejecutar        | Operaciones     |
+|                 | **Oficina de    | procesos        | toma el         |
+|                 | Proyectos** ^5^ | masivos         | *output* de     |
+|                 |                 | (emisión de     | tasación y lo   |
+|                 | **Oficina de    | giros, gestión  | convierte en un |
+|                 | Calidad** ^1^   | de              | cobro.          |
+|                 |                 | Sobretasa).^1^  |                 |
+|                 |                 |                 | \- **Con IT:**  |
+|                 |                 | \-              | Proyectos       |
+|                 |                 | **Proyectos:**  | trabaja con     |
+|                 |                 | Liderar la      | Informática     |
+|                 |                 | modernización y | ^28^ para       |
+|                 |                 | el cambio (ej.  | implementar     |
+|                 |                 | \"nuevo sistema | nuevas          |
+|                 |                 | de bienes       | plataformas.    |
+|                 |                 | raíces\").^5^   |                 |
+|                 |                 |                 |                 |
+|                 |                 | \- **Calidad:** |                 |
+|                 |                 | Monitorear el   |                 |
+|                 |                 | rendimiento de  |                 |
+|                 |                 | todo el proceso |                 |
+|                 |                 | mediante        |                 |
+|                 |                 | indicadores.^1^ |                 |
++-----------------+-----------------+-----------------+-----------------+
+
+## VII. Síntesis del Ecosistema de Roles: Interdependencias para un Equipo de Alto Rendimiento
+
+El análisis de los roles, funciones y cargos que componen la
+Subdirección de Avaluaciones revela una conclusión fundamental: el
+\"equipo perfecto\" para esta tarea no se define por un único
+\"profesional perfecto\" que lo sabe todo.
+
+El \"equipo perfecto\" es un **ecosistema de especialistas** diseñado de
+forma inteligente, donde la fortaleza de la organización no reside en
+sus estrellas individuales, sino en la *fluidez* y *robustez* de los
+flujos de trabajo que conectan a sus equipos técnicos, legales,
+informáticos y operativos.
+
+Para ilustrar esta interdependencia, se puede analizar el flujo de
+trabajo de un proceso crítico como un **Reavalúo** ^14^:
+
+1.  **Inicio (Legal/Estratégico):** La *Subdirección Normativa* ^33^ y
+    > el *Departamento de Tasaciones* ^3^ emiten la *Resolución* y
+    > *Circulares* ^34^ que definen la metodología, plazos y el inicio
+    > legal del proceso.
+
+2.  **Datos (Geocatastro):** La *Oficina de Geocatastro* ^4^, utilizando
+    > a sus *Especialistas GIS/Teledetección* ^7^, actualiza la
+    > cartografía digital ^13^, valida los límites de las propiedades y
+    > define las \"Áreas Homogéneas\" ^20^ con sus respectivos valores
+    > de suelo.
+
+3.  **Modelamiento (Data Science):** El *Analista de Datos* ^12^, en
+    > colaboración con el *Depto. de Tasaciones* ^3^, crea los modelos
+    > estadísticos ^19^ que cruzan los valores de suelo de Geocatastro
+    > con las calidades de construcción (obtenidas de tasadores y
+    > teledetección) y datos de mercado.
+
+4.  **Validación (Técnica):** Los *Fiscalizadores Tasadores* ^6^ en las
+    > Direcciones Regionales reciben los resultados preliminares del
+    > modelo. Usan su experiencia de campo para validarlos, reportar
+    > anomalías y preparar la \"Atención de público\".^6^
+
+5.  **Desarrollo (IT):** El *Departamento Informática Avaluaciones*
+    > ^28^, guiado por su *Jefe de Proyectos* ^7^ y *Desarrolladores*
+    > ^30^, actualiza la plataforma web (\"Mi Reavalúo\" ^14^) para que
+    > millones de contribuyentes puedan consultar sus nuevos avalúos en
+    > línea de forma segura y estable.
+
+6.  **Ejecución (Operaciones):** La *Oficina de Operaciones* ^1^ toma la
+    > nueva base de datos de avalúos y prepara los sistemas para la
+    > futura \"emisión de giros\" ^1^ y la correcta aplicación de la
+    > *Sobretasa* ^1^ sobre los valores actualizados.
+
+7.  **Monitoreo (Calidad):** La *Oficina de Calidad* ^1^ monitorea los
+    > indicadores clave del proceso: porcentaje de avance, consultas de
+    > contribuyentes, tiempos de respuesta y, posteriormente, la tasa de
+    > reclamos.
+
+8.  **Defensa (Legal):** Cuando un contribuyente ejerce su derecho a
+    > reclamo ^37^, el *Abogado* ^40^ del SII toma el informe del
+    > *Tasador* ^6^ y los datos del modelo de *Geocatastro* ^4^ para
+    > defender el nuevo avalúo ante el *TTA*.^38^
+
+En conclusión, el \"equipo perfecto\" es una maquinaria de precisión
+donde ingenieros (agrónomos, civiles, forestales) ^6^, arquitectos ^6^,
+científicos de datos ^12^, especialistas en GIS ^7^, abogados
+tributaristas ^40^ y desarrolladores de software ^30^ están
+profundamente integrados en un solo proceso de negocio, gestionado por
+profesionales de operaciones ^1^ y proyectos ^5^, y monitoreado por
+especialistas en calidad.^1^ La ausencia o debilidad de cualquiera de
+estos componentes comprometería la integridad, equidad y eficiencia de
+todo el sistema de impuesto territorial.
+
+#### Obras citadas
+
+1.  FACULTADES, FUNCIONES Y ATRIBUCIONES: Subdirección de Avaluaciones -
+    > SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/transparencia/facultades_dn-ava.html]{.underline}](https://www.sii.cl/transparencia/facultades_dn-ava.html)
+
+2.  Organigrama Subdirección de Avaluaciones - SII \| Servicio de
+    > Impuestos Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/sobre_el_sii/organigrama/organigrama_sd_avaluaciones.html]{.underline}](https://www.sii.cl/sobre_el_sii/organigrama/organigrama_sd_avaluaciones.html)
+
+3.  MATERIA: REORGANIZA LAS UNIDADES QUE CONFORMAN EL DEPARTAMENTO
+    > SUBDIRECCIÓN DE AVALUACIONES Y ESTABLECE AMBITOS DE COMPETENCIA -
+    > SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2016/reso37.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2016/reso37.pdf)
+
+4.  Resolución Exenta SII N° 26, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2022/reso26.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2022/reso26.pdf)
+
+5.  Proyectos de la Subdirección de Avaluaciones - SII, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/sobre_el_sii/planestrategico/proy/av-r.htm]{.underline}](https://www.sii.cl/sobre_el_sii/planestrategico/proy/av-r.htm)
+
+6.  CONCURSO DE PERSONAL - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/pagina/actualizada/concurso/conc_tas_02_07.htm]{.underline}](https://www.sii.cl/pagina/actualizada/concurso/conc_tas_02_07.htm)
+
+7.  Servicio de Impuestos Internos - Sii, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2021/res_ind_pers2021.htm]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2021/res_ind_pers2021.htm)
+
+8.  Concurso Subdirector/a de Departamento de Subdirección de
+    > Avaluaciones - Alta Dirección Pública, fecha de acceso: noviembre
+    > 7, 2025,
+    > [[https://adp.serviciocivil.cl/concursos-spl/opencms/convocatoria/ADP-29178]{.underline}](https://adp.serviciocivil.cl/concursos-spl/opencms/convocatoria/ADP-29178)
+
+9.  MATERIA: LLÁMASE A CONCURSO PARA PROVEER 1 CARGO DE JEFE/A DE
+    > DEPARTAMENTO GRADO 8. SANTIAGO, 08 de agosto de 2024 Hoy se ha
+    > re - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2024/resosiipers24.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2024/resosiipers24.pdf)
+
+10. MATERIA: LLÁMASE A CONCURSO PARA PROVEER 1 CARGO DE JEFE/A DE
+    > DEPARTAMENTO GRADO 7. SANTIAGO, 07 de noviembre de 2024 Hoy se
+    > ha - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2024/resosiipers45.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2024/resosiipers45.pdf)
+
+11. SUBDIRECTOR O SUBDIRECTORA DE DEPARTAMENTO SUBDIRECCIÓN DE
+    > AVALUACIONES1 SERVICIO DE IMPUESTOS INTERNOS MINISTERIO DE
+    > HACIENDA - Alta Dirección Pública, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://adp.serviciocivil.cl/concursos-spl/opencms/permalink/6bf528a0-4f1d-11f0-ab94-6755d96a8f20]{.underline}](https://adp.serviciocivil.cl/concursos-spl/opencms/permalink/6bf528a0-4f1d-11f0-ab94-6755d96a8f20)
+
+12. Procesos concluidos - SII \| Servicio de Impuestos Internos, fecha
+    > de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/sobre_el_sii/procesos_concluidos_2021.html]{.underline}](https://www.sii.cl/sobre_el_sii/procesos_concluidos_2021.html)
+
+13. Mapas SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www4.sii.cl/mapasui/internet/]{.underline}](https://www4.sii.cl/mapasui/internet/)
+
+14. Impuesto Territorial - Reavalúo 2025 - SII, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2025/index.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2025/index.html)
+
+15. Ingeniería en Geomática - Universidad de Guanajuato, fecha de
+    > acceso: noviembre 7, 2025,
+    > [[https://www.ugto.mx/licenciaturas/por-area-del-conocimiento/ingenierias/ingenieria-en-geomatica]{.underline}](https://www.ugto.mx/licenciaturas/por-area-del-conocimiento/ingenierias/ingenieria-en-geomatica)
+
+16. PROFESIONAL ASESOR - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/pagina/actualizada/concurso/ase_est.htm]{.underline}](https://www.sii.cl/pagina/actualizada/concurso/ase_est.htm)
+
+17. Cómo se hace para: Revisar y/o modificar avalúo de Bien Raíz - SII,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/como_se_hace_para/peticiones_administrativas/revisar_modificar_avaluo_terreno_bien_raiz.pdf]{.underline}](https://www.sii.cl/como_se_hace_para/peticiones_administrativas/revisar_modificar_avaluo_terreno_bien_raiz.pdf)
+
+18. ¿Cómo puedo consultar si un profesional se encuentra inscrito y
+    > habilitado para poder intervenir en las tasaciones a las que se
+    > refiere la letra d) del Artículo 5 transitorio de la Ley 18.985 de
+    > 1990? - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_4398.htm]{.underline}](https://www.sii.cl/preguntas_frecuentes/declaracion_renta/001_140_4398.htm)
+
+19. Tasacion virtual: Valuacion masiva con la ayuda de SIG en Shenzhen -
+    > Lincoln Institute of Land Policy, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www.lincolninst.edu/app/uploads/2024/04/tasacion-virtual-lla171003sp.pdf]{.underline}](https://www.lincolninst.edu/app/uploads/2024/04/tasacion-virtual-lla171003sp.pdf)
+
+20. ¿Qué son las Áreas Homogéneas? - Reavalúo - SII, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_8116.htm]{.underline}](https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_8116.htm)
+
+21. Zonas Homogéneas ONT - SNIT, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.snitcr.go.cr/ico_servicios_ogc_info?k=bm9kbzo6OTc=&nombre=Zonas%20Homog%C3%A9neas%20ONT]{.underline}](https://www.snitcr.go.cr/ico_servicios_ogc_info?k=bm9kbzo6OTc%3D&nombre=Zonas+Homog%C3%A9neas+ONT)
+
+22. CATASTRO DE BIENES RAÍCES - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/sobre_el_sii/pgct2021_f7.pdf]{.underline}](https://www.sii.cl/sobre_el_sii/pgct2021_f7.pdf)
+
+23. Qué hace un Data Analyst: salario, funciones y cómo formarte -
+    > ThePower Tech School, fecha de acceso: noviembre 7, 2025,
+    > [[https://thepowertech.es/blog/que-es-un-data-analyst-y-que-skills-necesita-para-triunfar]{.underline}](https://thepowertech.es/blog/que-es-un-data-analyst-y-que-skills-necesita-para-triunfar)
+
+24. ¿A qué se dedica el Analista de Datos o Big Data Analyst? \| IEBS
+    > Business School, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.iebschool.com/hub/analista-datos-big-data/]{.underline}](https://www.iebschool.com/hub/analista-datos-big-data/)
+
+25. Perfil Data Analyst - Qué hace un Analista de Datos? - YouTube,
+    > fecha de acceso: noviembre 7, 2025,
+    > [[https://www.youtube.com/watch?v=UhMnfv0pg2A]{.underline}](https://www.youtube.com/watch?v=UhMnfv0pg2A)
+
+26. ¿Qué hace un data analyst? Guía de carreras 2025 - Coursera, fecha
+    > de acceso: noviembre 7, 2025,
+    > [[https://www.coursera.org/mx/articles/what-does-a-data-analyst-do-a-career-guide]{.underline}](https://www.coursera.org/mx/articles/what-does-a-data-analyst-do-a-career-guide)
+
+27. Consultar Reavalúos y ROL semestral de contribuciones - SII \|
+    > Servicio de Impuestos Internos, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www.sii.cl/servicios_online/1048-2569.html]{.underline}](https://www.sii.cl/servicios_online/1048-2569.html)
+
+28. Esta Dirección Nacional con fecha de hoy, ha dictado la siguiente
+    > Resolución : - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2019/reso101.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2019/reso101.pdf)
+
+29. Esta Dirección Nacional con fecha de hoy, ha dictado la siguiente
+    > Resolución : - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/resoluciones/2017/reso110.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/resoluciones/2017/reso110.pdf)
+
+30. Procesos en Etapa de Selección - SII \| Servicio de Impuestos
+    > Internos, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/sobre_el_sii/en_seleccion.html]{.underline}](https://www.sii.cl/sobre_el_sii/en_seleccion.html)
+
+31. FACULTADES, FUNCIONES Y ATRIBUCIONES: Subdirección de Tecnologías de
+    > la Información - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/transparencia/facultades_dn-inf.html]{.underline}](https://www.sii.cl/transparencia/facultades_dn-inf.html)
+
+32. Servicio de impuestos internos - Procedimiento de Impugnación de
+    > Avalúos - Sii, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/destacados/reavaluo/2024/4439-4445.html]{.underline}](https://www.sii.cl/destacados/reavaluo/2024/4439-4445.html)
+
+33. FACULTADES, FUNCIONES Y ATRIBUCIONES: Subdirección de Normativa -
+    > SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/transparencia/facultades_nor.htm]{.underline}](https://www.sii.cl/transparencia/facultades_nor.htm)
+
+34. Circulares 2025 - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/circulares/2025/indcir2025.htm]{.underline}](https://www.sii.cl/normativa_legislacion/circulares/2025/indcir2025.htm)
+
+35. Circular N°38 - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/circulares/2025/circu38.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/circulares/2025/circu38.pdf)
+
+36. Circular N°19. - SII, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.sii.cl/normativa_legislacion/circulares/2025/circu19.pdf]{.underline}](https://www.sii.cl/normativa_legislacion/circulares/2025/circu19.pdf)
+
+37. ¿Cómo puedo presentar un reclamo contra el nuevo avalúo determinado
+    > en el Reavalúo Agrícola 2024? - SII, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_8784.htm]{.underline}](https://www.sii.cl/preguntas_frecuentes/aval_contrib_bbrr/001_165_8784.htm)
+
+38. Procedimiento Especial de Reclamo de los Avalúos de Bienes Raíces -
+    > Tribunales Tributarios y Aduaneros de Chile, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://www.tta.cl/procedimiento-especial-de-reclamo-de-los-avaluos-de-bienes-raices/]{.underline}](https://www.tta.cl/procedimiento-especial-de-reclamo-de-los-avaluos-de-bienes-raices/)
+
+39. DEFENSA ANTE EL TRIBUNAL TRIBUTARIO Y ADUANERO -, fecha de acceso:
+    > noviembre 7, 2025,
+    > [[https://a-tributario.cl/index.php/defensa-ante-el-tribunal-tributario-y-aduanero/]{.underline}](https://a-tributario.cl/index.php/defensa-ante-el-tribunal-tributario-y-aduanero/)
+
+40. CONCURSO PARA PROFESIONALES - SII, fecha de acceso: noviembre 7,
+    > 2025,
+    > [[https://www.sii.cl/pagina/actualizada/concurso/con_abog_11_2007.htm]{.underline}](https://www.sii.cl/pagina/actualizada/concurso/con_abog_11_2007.htm)
+
+41. Abogados Tributarios Chile \| Asesoría Legal en Derecho Fiscal -
+    > NexoAbogados, fecha de acceso: noviembre 7, 2025,
+    > [[https://www.nexoabogados.cl/abogado-tributario]{.underline}](https://www.nexoabogados.cl/abogado-tributario)
