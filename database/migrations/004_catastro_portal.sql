@@ -196,6 +196,30 @@ COMMENT ON TABLE catastro.construcciones IS
 -- 3. CATASTRO.AVALUOS_HISTORIAL — Serie histórica de avalúos
 -- ─────────────────────────────────────────────────────────────────────────────
 
+-- ─────────────────────────────────────────────────────────────────────────────
+-- 3b. SUELOS_AGRICOLAS — Suelos de predios agrícolas (separados de construcciones)
+-- ─────────────────────────────────────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS catastro.suelos_agricolas (
+    id           uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    rol          text NOT NULL,
+    cod_suelo    text NOT NULL,             -- 1R, 2R, 3R, 1-8 (ref.tipos_suelo_agricola)
+    sup_ha       numeric(12,2),             -- hectáreas (raw SII / 100)
+    fuente_datos text DEFAULT 'SII_CSV',
+    created_at   timestamptz DEFAULT now(),
+    CONSTRAINT fk_suelos_predio FOREIGN KEY (rol)
+        REFERENCES catastro.predios(rol) ON DELETE CASCADE
+);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_suelos_rol_cod
+    ON catastro.suelos_agricolas(rol, cod_suelo);
+CREATE INDEX IF NOT EXISTS idx_suelos_rol
+    ON catastro.suelos_agricolas(rol);
+
+COMMENT ON TABLE catastro.suelos_agricolas IS
+    'Suelos de predios agrícolas, extraídos del archivo AL del Detalle Catastral SII. '
+    'sup_ha = campo raw SII dividido por 100. Un ROL puede tener múltiples clases de suelo.';
+
+-- ─────────────────────────────────────────────────────────────────────────────
+
 CREATE TABLE IF NOT EXISTS catastro.avaluos_historial (
   id                     bigserial     PRIMARY KEY,
   rol                    text          NOT NULL
@@ -678,7 +702,7 @@ BEGIN
   -- Acumular avalúo construcciones con depreciación real
   SELECT v_avaluo_snri + COALESCE(SUM(
     co.sup_util_m2
-    * COALESCE(co.vuc_uf_m2, 0) * 29400          -- UF → pesos aprox
+    * COALESCE(co.vuc_uf_m2, 0) * COALESCE((SELECT valor_numerico::integer FROM ref.parametros_motor WHERE codigo = 'uf_valor_clp'), 38420)  -- UF → pesos (ref.parametros_motor)
     * COALESCE(ref.f_depreciacion(EXTRACT(YEAR FROM NOW())::int - co.anio_construccion), 1)
     * COALESCE(co.factor_condicion_esp, 1)
   ), 0)
@@ -772,7 +796,7 @@ BEGIN
     p_usuario_id,
     v_auditoria.id,
     p_rol,
-    ROUND(v_auditoria.monto_recuperable / 29400.0, 2),  -- pesos → UF aprox
+    ROUND(v_auditoria.monto_recuperable / COALESCE((SELECT valor_numerico::integer FROM ref.parametros_motor WHERE codigo = 'uf_valor_clp'), 38420)::numeric, 2),  -- pesos → UF (ref.parametros_motor)
     'recibido',
     'portal_usuario'
   )

@@ -506,6 +506,59 @@ CREATE UNIQUE INDEX IF NOT EXISTS uq_suelos_rol_cod
 # REGISTRO EN catastro.importaciones
 # ══════════════════════════════════════════════════════════════════
 
+
+def sql_rc(rows: list, chunk: int) -> tuple[str, dict]:
+    """Rol Cobro fixed-width → catastro.contribuciones_historial"""
+    stats = {'total': 0, 'con_aseo': 0, 'exentos': 0, 'agricola': 0}
+    batches = []
+
+    for i in range(0, len(rows), chunk):
+        batch = rows[i:i+chunk]
+        vals = []
+        for r in batch:
+            if len(r) < 14: continue
+            stats['total'] += 1
+            if r[3] == 'A': stats['con_aseo'] += 1
+            if r[7] == 'A': stats['agricola'] += 1
+            try:
+                if int(r[10] or 0) >= int(r[9] or 0) and int(r[9] or 0) > 0:
+                    stats['exentos'] += 1
+            except (ValueError, TypeError):
+                pass
+
+            # ROL: cod_comuna-manzana-predio (pos 1-5, 58-62, 63-67 → index 0, 5, 6)
+            cod = r[0].strip()
+            man = r[5].strip()
+            pre = r[6].strip()
+            rol = f"'{cod}-{man}-{pre}'" if cod and man and pre else 'NULL'
+
+            vals.append(
+                f"({rol},{esc(cod)},{esc(man)},{esc(pre)},"
+                f"{num_keep_zero(r[1])},{num_keep_zero(r[2])},"
+                f"{esc_keep_zero(r[7])},"
+                f"{num(r[8])},{avaluo(r[9])},{avaluo(r[10])},"
+                f"{num_keep_zero(r[11])},{esc_keep_zero(r[12])},{esc_keep_zero(r[13])},"
+                f"{'true' if r[3]=='A' else 'false'},'SII_RC')"
+            )
+
+        if vals:
+            batches.append(
+                "INSERT INTO catastro.contribuciones_historial (\n"
+                "  rol, codigo_comuna, manzana, predio,\n"
+                "  anio, semestre, serie_predio,\n"
+                "  cuota_trimestral, avaluo_total, avaluo_exento,\n"
+                "  anio_termino_exencion, cod_ubicacion, destino,\n"
+                "  incluye_aseo, fuente_datos\n"
+                ") VALUES\n" +
+                ',\n'.join(vals) +
+                "\nON CONFLICT (rol, anio, semestre) DO UPDATE SET\n"
+                "  cuota_trimestral = EXCLUDED.cuota_trimestral,\n"
+                "  avaluo_total     = EXCLUDED.avaluo_total,\n"
+                "  avaluo_exento    = EXCLUDED.avaluo_exento;"
+            )
+
+    return '\n\n'.join(batches), stats
+
 def sql_importacion(meta_list: list, stats_map: dict) -> str:
     ts = datetime.utcnow().isoformat()
     vals = []
@@ -625,6 +678,8 @@ def run(args):
                 _, s = sql_a(rows, 999999)
             elif ft == 'AL':
                 _, s = sql_al(rows, 999999)
+            elif ft == 'RC':
+                _, s = sql_rc(rows, 999999)
             else:
                 s = {'total': m['total_rows']}
             stats_map[ft] = s
@@ -662,6 +717,8 @@ def run(args):
             body, stats = sql_a(rows, chunk)
         elif ftype == 'AL':
             body, stats = sql_al(rows, chunk)
+        elif ftype == 'RC':
+            body, stats = sql_rc(rows, chunk)
         else:
             sql_parts.append(f"-- TIPO {ftype} no implementado\n")
             stats = {}

@@ -748,6 +748,7 @@ INSERT INTO ref.parametros_motor VALUES
 -- Motor SNRI
 ('version_motor',               '1.0',      'text',    'Versión del motor de cálculo SNRI',       '2026-03-01', 'SNRI internal',       'manual'),
 ('umbral_diferencia_alerta',   '0.05',     'numeric', 'Diferencia % mínima para generar alerta (5%)', '2026-03-01', 'SNRI internal',  'manual'),
+('uf_valor_clp',              '38420',    'integer', 'Valor UF en CLP — actualizar diariamente (mindicador.cl)', '2026-03-14', 'mindicador.cl',       'diario'),
 ('descuento_potencial_expansion','0.60',   'numeric', 'Descuento sobre valor expansión potencial (60%)', '2026-03-01', 'SNRI internal','manual');
 
 COMMENT ON TABLE ref.parametros_motor IS
