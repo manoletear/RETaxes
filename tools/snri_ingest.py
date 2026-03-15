@@ -60,7 +60,7 @@ CE_CONOCIDAS = {'AL', 'CA', 'CI', 'MS', 'PZ', 'SB', 'TM'}
 
 # Comunas SII (muestra — en producción cargar desde ref.comunas)
 COMUNAS = {
-    '10108': 'PANGUIPULLI', '15108': 'LAS CONDES', '13101': 'SANTIAGO',
+    '10105': 'FUTRONO', '10106': 'CORRAL', '10108': 'PANGUIPULLI', '15108': 'LAS CONDES', '13101': 'SANTIAGO',
     '8201': 'CONCEPCION', '5301': 'VALPARAISO', '5302': 'VINA DEL MAR',
     '9201': 'TEMUCO', '10201': 'OSORNO', '10301': 'PUERTO MONTT',
     '4103': 'COQUIMBO', '4101': 'LA SERENA', '13134': 'SANTIAGO OESTE',
