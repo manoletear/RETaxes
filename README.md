@@ -290,3 +290,46 @@ MIT — Uso libre con atribución.
 ---
 
 *Construido para contribuyentes, abogados tributarios y tasadores chilenos.*
+
+---
+
+## Deploy en Supabase
+
+### Setup (una vez)
+
+1. En GitHub → Settings → Secrets → Actions → New repository secret:
+   - **Name:** `SUPABASE_DB_PASSWORD`
+   - **Value:** la contraseña de `db.sczxyejqooqthxcxksah.supabase.co`
+   
+   La encuentras en: `Supabase → poppins-erp → Settings → Database → Database password`
+
+2. Verificar que poppins-erp esté activo (actualmente: ✅ ACTIVE_HEALTHY)
+
+### Cargar datos
+
+```
+GitHub → RETaxes → Actions → Seed Supabase → Run workflow
+→ Seleccionar: all (12 comunas) o una específica
+```
+
+**Tiempo estimado:** ~8-12 min para las 12 comunas (657K registros)
+
+### Verificar estado
+
+```
+GitHub → Actions → Verificar estado BD → Run workflow
+```
+
+O directamente en Supabase SQL Editor:
+```sql
+SELECT COUNT(*) FROM catastro.predios;
+SELECT * FROM ref.v_resumen_fiscal_vigente;
+SELECT * FROM ref.f_calcular_contribucion(200000000, 'habitacional');
+SELECT * FROM catastro.fn_parsear_rol('15108-00624-00006');
+```
+
+### Proyecto Supabase
+- **Proyecto:** poppins-erp
+- **ID:** `sczxyejqooqthxcxksah`  
+- **Host:** `db.sczxyejqooqthxcxksah.supabase.co`
+- **Región:** sa-east-1 (São Paulo)
