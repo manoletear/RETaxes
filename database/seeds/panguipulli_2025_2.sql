@@ -1,6 +1,6 @@
 -- ══════════════════════════════════════════════════════════════
 -- SNRI — Ingestión Catastral SII
--- Generado : 2026-03-13 23:39:47
+-- Generado : 2026-03-19 16:50:47
 -- Comuna(s): 10108 PANGUIPULLI
 -- Archivos :
 --   BRTMPCATASN_2025_2_10108
@@ -45507,10 +45507,10 @@ INSERT INTO catastro.importaciones
   (codigo_comuna, nombre_comuna, archivo_fuente, tipo_archivo,
    total_registros, fecha_importacion, estado, error_msg)
 VALUES
-('10108', 'PANGUIPULLI', 'BRTMPCATASN_2025_2_10108', 'N', 13679, '2026-03-13T23:39:47.716011', 'completado', NULL),
-('10108', 'PANGUIPULLI', 'BRTMPCATASNL_2025_2_10108', 'NL', 13158, '2026-03-13T23:39:47.716011', 'completado', NULL),
-('10108', 'PANGUIPULLI', 'BRTMPCATASA_2025_2_10108', 'A', 7078, '2026-03-13T23:39:47.716011', 'completado', NULL),
-('10108', 'PANGUIPULLI', 'BRTMPCATASAL_2025_2_10108', 'AL', 10301, '2026-03-13T23:39:47.716011', 'completado', NULL);
+('10108', 'PANGUIPULLI', 'BRTMPCATASN_2025_2_10108', 'N', 13679, '2026-03-19T19:50:48.017582', 'completado', NULL),
+('10108', 'PANGUIPULLI', 'BRTMPCATASNL_2025_2_10108', 'NL', 13158, '2026-03-19T19:50:48.017582', 'completado', NULL),
+('10108', 'PANGUIPULLI', 'BRTMPCATASA_2025_2_10108', 'A', 7078, '2026-03-19T19:50:48.017582', 'completado', NULL),
+('10108', 'PANGUIPULLI', 'BRTMPCATASAL_2025_2_10108', 'AL', 10301, '2026-03-19T19:50:48.017582', 'completado', NULL);
 
 COMMIT;
 -- ══ FIN DE INGESTIÓN ══
